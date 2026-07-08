@@ -37,6 +37,12 @@ Legend: **Steps** = onboarding-to-first-invest friction · **US/CA** = US/Canada
 - **NRE/NRO:** supported; regular plans only (ARN), **no direct plans**, not always disclosed. [evidence]
 - **Tax:** consolidated info + WhatsApp weekly reports (liked); no pre-redemption TDS preview surfaced. [evidence]/[assumption]
 - **Trust cues:** info-consolidation praised. **Erodes trust via:** "months of unanswered emails," unresponsive-after-upload, **nominee dead-end loop**. [evidence]
+- **Why they still win users (strengths — respect these):** [evidence]/[assumption]
+  1. **NRI-first brand & reach** — years of SEO/content ("SBNRI" *is* the search result for NRI banking/tax queries); they own top-of-funnel mindshare.
+  2. **One-stop breadth** — MF + NRI bank-account opening + tax/DTAA services + advisory in one place; consolidates a fragmented journey.
+  3. **Human + assisted onboarding** — a real RM/agent hand-holds the hard NRI KYC; for anxious first-timers that human beats a purely-DIY flow.
+  4. **Proactive engagement** — WhatsApp weekly portfolio reports meet NRIs on the channel they actually use.
+  → Lesson: we beat them on *craft, speed, transparency and tax-intelligence UX* — but must match their **breadth of reassurance + human fallback**, not just out-design the screens.
 - **Fails NRIs:** silence + wet-signature + support black-hole = abandonment. **← our #1 opening.**
 
 **iNRI (goinri)**

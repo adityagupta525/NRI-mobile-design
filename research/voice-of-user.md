@@ -169,6 +169,32 @@ with **honest eligibility up front**, is the positioning wedge.
 
 ---
 
+### Theme 9 — "Direct vs Regular" fee objection is LOUD (and it's aimed at us) 🟢
+This objection is **not niche — it is a top-of-mind, quantified grievance** across every
+major NRI publisher (Belong, iNRI/goinri, SBNRI, Zerodha Varsity all run dedicated
+explainers), which means informed NRIs arrive already primed to ask *"is this direct or
+regular, and what's it costing me?"*
+- Widely-cited math: a ₹25k SIP over 30 yrs = **₹6.3 cr (regular, 1.5% ER) vs ₹7.8 cr
+  (direct, 1.0% ER)** — *"24% more wealth… ₹1.5 cr difference."* [Community-evidenced]
+- The sharpest line: *"NRIs unknowingly lose lakhs because nobody explained the direct
+  vs regular choice clearly."* *[Paraphrased — NRI MF explainers]* 🟢
+- Counter-truth (our honest defence): regular/ARN commission funds **genuine value** —
+  KYC hand-holding, compliance guidance, market-crash support — *"for someone who'd
+  otherwise not invest at all, this service justifies the cost."* [Community-evidenced]
+
+> 🚩 **PART-C REQUIREMENT (copy + positioning):** We are **regular-plan / ARN-only**
+> (scope.md). We must **not hide this** — the informed DIY user will spot it and churn.
+> Requirement: a **transparent "why regular"** moment (fund detail + order review) that
+> states the plan type, owns the trade-off, and justifies it with the *guided-compliance +
+> hand-holding* value we actually deliver (DTAA activation, TDS preview, repatriation
+> guidance, live KYC). Turn the objection into a trust proof, not a hidden liability.
+> **Depends on assumption #? — validate willingness-to-pay-for-guidance in interviews.**
+
+**Design leverage:** high — mishandled it's a churn trigger; handled well it *is* the
+premium-positioning argument.
+
+---
+
 ## 2. Competitor sentiment snapshot (from review/search signal)
 *(Full teardown lands in Part B; this is only the user-sentiment slice.)*
 
@@ -194,7 +220,7 @@ premium, calm UX" together** — that is our lane.
 5. **Residency-status limbo freezing SIPs/redemptions** 🟢
 6. **Repatriation "can I get my money out?" anxiety (NRE/NRO, 15CA/CB)** 🟢
 7. **Trust/scam fear & data-privacy** 🟢
-8. **Regular-vs-direct & fee transparency** 🟡
+8. **Regular-vs-direct fee objection** — loud & quantified; a positioning risk for our ARN-only model 🟢
 
 ---
 

@@ -46,3 +46,38 @@ flows + the visual/tone bet. #8–#10 de-risk positioning/segmentation.
 
 > Nothing in Part B–D is final until at least **#1–#4** are tested with real NRIs.
 > Every screen that depends on an unvalidated assumption will be flagged in its brief.
+
+---
+
+## C. Open strategic decisions (business-owned, block relevant design)
+
+### C1 — US/Canada NRI stance in Phase-1: **serve-with-restrictions** vs **graceful waitlist?**
+**Owner: Business** (with Compliance). **Status: OPEN — decision needed before the eligibility-gate screen is designed.** [decision, not assumption]
+
+**Why it matters:** ~4.5M+ Indians in the US and ~1.7M in Canada are a huge slice of the
+market, but FATCA makes most Indian AMCs **reject US/CA NRIs**, and Indian MFs are **PFICs**
+(US) / **FAPI** (Canada) — punitive to hold. (BRD §3.5; `voice-of-user.md` Theme 2.) The
+choice changes the *entire* first-run for Priya's segment.
+
+**Which AMCs allow US/CA (verify with ops — [assumption] until confirmed):** a *minority*
+accept US/CA NRIs, typically with **offline/physical forms + additional declarations** — e.g.
+historically **SBI MF, ICICI Prudential, Aditya Birla SL, UTI, Sundaram, Navi** have been
+cited as accepting; most others decline. **No central feed exists** — ops must maintain this
+in the scheme master (BRD / Platform-Notes NOTE 3). This list **must be sourced from AMCs
+directly and dated** before we promise anything in UX.
+
+**Two UX paths (design both as options, ship one after the decision):**
+
+| | **Path A — Serve with restrictions** | **Path B — Graceful waitlist** |
+|---|---|---|
+| Entry | Country-of-residence → if US/CA, **filter to only US/CA-eligible AMCs** | Country → if US/CA, **honest "not yet" + waitlist capture** |
+| Core UX | Prominent **PFIC/FAPI risk disclosure** (Plum-style Form-W8/foreign-status pattern), offline-form handling, "why fewer funds" explainer, eligibility badge per fund | Plain "we can't serve US/CA compliantly yet," **email/phone capture**, expectation-set, optional GIFT-City (Phase 2/3) interest tag |
+| Compliance load | High — US legal sign-off is a **hard dependency** (BRD §3.5) | Low — no execution, just lead capture |
+| Risk | Over-promise → frozen accounts, the exact SBNRI failure | Under-serve a large segment; competitor captures them |
+| Kano | Basic (honesty) + Performance (eligible-fund filter) | Basic (honesty) |
+
+**Recommendation (for Ashish/business to arbitrate):** **Path B for Phase-1** (honest
+waitlist + PFIC disclosure + GIFT-City interest tag) because US legal sign-off is a hard
+blocker and Priya's validated pain is *"found out too late"* — a truthful gate beats a
+hopeful flow that fails. Revisit Path A once the AMC list + US legal review land. [assumption —
+validate with #5 in the Top-10]
