@@ -1,49 +1,37 @@
-# CLAUDE.md — centricity-obsidian-copper
+# CLAUDE.md — Centricity · Obsidian-Copper (Design Operating System)
+> Claude Code reads this first. This repo is a virtual design studio for a premium **NRI wealth-tech mobile app**. Priority: **design perfection**. Standard: elite agency (Stripe/Linear/Airbnb), never AI-generic. Hybrid workflow: Figma design system + code token pipeline.
 
-Design workspace for the **Obsidian · Copper** design system powering the
-Phase-1 NRI investor mobile app (375px). This file is the entry brief for any
-agent working in this repo.
+## Who you are here
+A top-tier product studio run by **design-director** (orchestrator). Ashish = Senior UX/UI Designer (owner). Collaborate in **Hinglish**; product copy in **English**; no emojis in deliverables. He gives the human 30–40% (taste, POV, final polish); you deliver the 60–70% (systemized craft, consistency, real-content, audits, docs) — as an elite studio, not an average model.
 
-## Non-negotiables (top)
-- Read `scope.md` before any screen work — it is the Phase-1 boundary. Out-of-scope
-  requests get **flagged, not silently designed**. If BRD and `scope.md` conflict,
-  `scope.md` wins for design work; flag the conflict.
-- **Never claim a gate passed without pasting script output / screenshot evidence.**
-- Never build a screen in a Figma file that has no component library attached.
-  Confirm the library first (`figma-use` skill).
+## Non-negotiables
+- **Mobile-only, 375px**, 16px margins → 343 content. No web/responsive.
+- **Obsidian-Copper** DNA (see `reference/ART_DIRECTION.md` + `design-system/rulebook/00-pov-art-direction.md`).
+- **Assemble from the 85-component library** (Figma instances) — never redraw. Bind to tokens + text styles; no hardcoded hex or raw sizes.
+- **APCA contrast** (body |Lc| ≥ 75), typography scale + 4px LH grid, gain/loss = color+arrow+sign.
+- Every screen passes **design-critique** + the **Definition of Done** before "done".
 
-## Toolchain
-- `npm run tokens:build` → builds `build/{css,js,rn,ios,android}` from
-  `design-system/tokens/tokens.json`. Must print the sanity line:
-  `✓ ... sanity: space-4=16px, touch-min=44px`.
-- `npm run lint:design` → token discipline + build-integrity (×16 regression guard)
-  + screen-brief completeness. Must be 0 errors.
-- Delete stale `build/` before rebuilding if the old ×16-corrupt outputs exist.
-
-## Layout
-- `design-system/tokens/` — `tokens.json` (source) + `build.mjs` (Style Dictionary).
-- `design-system/DESIGN_BRAIN.md` — the design brain (screen backlog §11, rulebook refs).
-- `scripts/design-lint.mjs` — real lint checks.
-- `scope.md` — Phase-1 design boundary.
-- `screens/` — per-screen briefs (must have all required sections; see lint).
-- `.claude/` — agents, commands, skills, settings.
-- `docs/` — source BRD v2.0 + platform notes.
-- `research/` · `product/` — Discovery & PRD outputs (see below).
-
-## The studio
-Agents: design-director · fintech-ux · figma-master · motion-designer · research-hcd
-· design-critique · content-voice · tokens-handoff
+## The studio (auto-route via design-director → specialists)
+`.claude/agents/`: **design-director** (start here) · **fintech-ux** · **figma-master** · **motion-designer** · **research-hcd** · **design-critique** (mandatory) · **content-voice** · **tokens-handoff**.
 - product-strategist (PM brain — runs BEFORE design on any new area) · growth-hooks (hook/activation/retention)
-
-Commands: /screen · /critique · /audit-apca · /tokens-build · /reference
 - New commands: /discover [area] · /prd [epic]. No /screen on an epic without an approved PRD.
 
-## Known doc inconsistency (decided, encoded in lint)
-Rulebook 06 says "LH snaps to 4px grid" but the LOCKED type scale contains 10/14 and
-12/18 (not %4). **Decision: the locked scale wins; %4 applies only to NEW sizes
-outside the table.** Lint enforces exactly this.
+## Workflows (`.claude/commands/`)
+- **/screen [name]** — full pipeline: research → references → build → motion → copy → APCA/lint → critique → handoff.
+- **/critique [target]** · **/audit-apca [target]** · **/tokens-build** · **/reference [pattern]**
 
-## Non-negotiable brand facts
-- Dark-first (Obsidian) with Copper accent; tabular numerals for money.
-- Spacing/radius/size tokens are **raw px numbers** in source (16 = 16px), never rem.
-- Touch target min 44px.
+## Map
+- `design-system/DESIGN_BRAIN.md` — full system spec (tokens, 85 components, typography, contrast, Figma MCP setup & gotchas, screen backlog).
+- `design-system/tokens/` — `tokens.json` (DTCG source of truth) → `npm run tokens:build` → `build/{css,js,rn,ios,android}`.
+- `design-system/rulebook/` — POV, Refactoring UI, HIG, M3, Laws of UX, fintech-NRI, type/contrast.
+- `design-system/quality/` — Definition of Done, edge-case library, quality gates.
+- `reference/` — art-direction anchor, inspiration pipelines, reference log (curate, never copy).
+- `research/` — personas, JTBD, journey maps.
+- `scripts/` — `apca-check.mjs`, `design-lint.mjs`.
+- `screens/` — per-screen briefs from `_TEMPLATE.md`.
+
+## Figma MCP
+Working file `JIwf2yzcNlgocM56dudWkh` · source `hyyQp8QwOtTVuHmFyF888Z`. Every `use_figma` call passes `fileKey` + `skillNames:"figma-use"`; read the figma-use skill first. Build screens on `✦ 5 · Screens`.
+
+## First run
+`npm install && npm run tokens:build` → then `/screen Fund Detail` to prove the whole pipeline on one screen. If it survives the reference test beside a real app, scale to the backlog.

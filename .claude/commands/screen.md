@@ -1,20 +1,18 @@
 ---
-description: Produce a Phase-1 screen brief + assemble it in Figma from the Obsidian-Copper library. Usage: /screen <Screen Name>
+description: Full screen pipeline — research → references → build → motion → copy → audits → critique → handoff
+argument-hint: [screen name]
 ---
-> ⚠️ SCAFFOLD PLACEHOLDER — replace with the real /screen pipeline.
+Build the screen "$ARGUMENTS" through the FULL pipeline. Start as design-director; do not skip or reorder gates (design-system/quality/quality-gates.md):
 
-You are running the **/screen** pipeline for the Obsidian-Copper NRI app.
-
-Steps:
-1. Read `scope.md`. If the requested screen is out of Phase-1 scope, STOP and flag it.
-2. **RESEARCH** — Read `design-system/DESIGN_BRAIN.md` (screen backlog §11) and `CLAUDE.md`.
-   Reference existing `research/*.md` and `product/prd-*.md` outputs; only fill gaps, never re-run full discovery per screen.
-3. Confirm the Figma "claude" component library is attached (figma-use skill). If not, STOP.
-4. **REFERENCES** — Write `screens/<Screen>.md` with ALL required sections:
-   `## References`, `## Structure`, `## Components used`, `## States & edge cases`,
-   `## Copy`, `## Motion`, `## Gates`.
-   In `## References`, cite the existing `research/*.md` and `product/prd-*.md` outputs used; only fill gaps, never re-run full discovery per screen.
-5. Assemble the screen in Figma using ONLY existing library components.
-6. Run `npm run lint:design`; paste the output. Do not claim done without evidence.
-
-Target screen: $ARGUMENTS
+1. Check scope.md — confirm "$ARGUMENTS" is Phase-1 design scope; if not, stop and say so.
+2. research-hcd: JTBD + persona + journey grounding → sign-off. Reference existing research/*.md and product/prd-*.md outputs; only fill gaps, never re-run full discovery per screen.
+3. fintech-ux: compliance requirements + trust cues + failure states for this screen.
+4. Reference pass: 4–6 real refs (Mobbin MCP if available, else reference/inspiration-sources.md apps), log borrow/avoid/our-POV in reference/reference-log.md. Reference existing research/*.md and product/prd-*.md outputs; only fill gaps, never re-run full discovery per screen.
+5. Create/fill screens/$ARGUMENTS.md from screens/_TEMPLATE.md.
+6. figma-master: build on ✦ 5 · Screens from instances (read figma-use skill first). Screenshot.
+7. motion-designer: motion spec with tokens.
+8. content-voice: all copy incl. edge states.
+9. Run `npm run apca` and `npm run lint:design` — paste outputs into the brief.
+10. design-critique: P0–P3 + reference test + brave move. Fix P0/P1, re-verify.
+11. tokens-handoff: handoff notes.
+12. Report to Ashish in Hinglish: what's done, what's honestly NOT (unbuilt state frames etc.), screenshot, open follow-ups.
