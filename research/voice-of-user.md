@@ -17,16 +17,19 @@ about. Treat it as a *hypothesis generator*, not validated truth.
 - Web search across NRI tax/finance publishers, competitor blogs, and app-store /
   Trustpilot review summaries.
 
-**What I could NOT access (hard limits this session)**
-- **Reddit is blocked** for direct fetch — I could not pull verbatim r/nri or
-  r/IndiaInvestments threads. Reddit-specific claims below are **absent**, not
-  summarised.
-- **Quora, Belong, AppGrooves and several blogs returned HTTP 403** — I could not
-  extract verbatim quotes with usernames/dates.
-- Therefore **there are no fabricated "real quotes" in this document.** Where I
-  show quote-style text it is explicitly labelled as **[Paraphrased]** from a cited
-  source or **[Synthesised]** representative language — never attributed to a named
-  individual I did not actually read.
+**What I could NOT access (hard limits — re-attempted this session, still blocked)**
+- **Reddit is blocked at the crawler level** (`reddit.com` inaccessible to the fetch
+  agent) — no r/nri or r/IndiaInvestments threads could be pulled. Re-tried via
+  search, `old.reddit.com`, and the `.json` API — all blocked.
+- **Trustpilot, Google Play, App Store, Quora, Belong, AppGrooves** all returned
+  **HTTP 403** — verbatim reviews with usernames/dates could not be extracted.
+- **Therefore this document contains ZERO verbatim community quotes and ZERO
+  fabricated ones.** Every quote-style line is explicitly **[Paraphrased]** from a
+  cited source or **[Synthesised]** representative language — never attributed to a
+  named individual I did not actually read.
+- **To get real verbatim quotes:** either (a) Ashish shares 3–5 actual thread
+  links/screenshots, or (b) run this mining step from an environment where
+  Reddit/Trustpilot/app-stores are fetchable. Flagged for decision before Part B.
 
 **Confidence legend**
 - 🟢 **[Community-evidenced]** — multiple independent public sources describe this
@@ -37,7 +40,7 @@ about. Treat it as a *hypothesis generator*, not validated truth.
 
 > **Ashish — the single biggest gap:** we have zero first-party interview data.
 > Everything here must be pressure-tested against real NRIs before we treat any of
-> it as a requirement. The Top-10 assumptions list (`assumptions-to-validate.md`)
+> it as a requirement. The Top-10 assumptions list (`assumption-register.md`)
 > is what I need you to run real interviews on.
 
 ---

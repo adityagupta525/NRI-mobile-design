@@ -1,7 +1,7 @@
 # Personas — Deepened with Community Evidence
 
 **Sprint:** Discovery & Definition · Part A (Empathize)
-**Companion to:** `voice-of-user.md`, `assumptions-to-validate.md`
+**Companion to:** `voice-of-user.md`, `assumption-register.md`
 **Date:** 2026-07-08
 
 > **Evidence tags** on every claim:
@@ -137,4 +137,4 @@ exports a clean CG statement, and initiates a compliant repatriation.
   and **Sam (comprehend/repatriate)**; **Priya** is mostly an **honest-gate + lead**
   story in Phase 1. **[V + scope.md]**
 
-*Personas are directional until validated — see `assumptions-to-validate.md`.*
+*Personas are directional until validated — see `assumption-register.md`.*
