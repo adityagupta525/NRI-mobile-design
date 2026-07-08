@@ -28,6 +28,15 @@ agent working in this repo.
 - `screens/` — per-screen briefs (must have all required sections; see lint).
 - `.claude/` — agents, commands, skills, settings.
 - `docs/` — source BRD v2.0 + platform notes.
+- `research/` · `product/` — Discovery & PRD outputs (see below).
+
+## The studio
+Agents: design-director · fintech-ux · figma-master · motion-designer · research-hcd
+· design-critique · content-voice · tokens-handoff
+- product-strategist (PM brain — runs BEFORE design on any new area) · growth-hooks (hook/activation/retention)
+
+Commands: /screen · /critique · /audit-apca · /tokens-build · /reference
+- New commands: /discover [area] · /prd [epic]. No /screen on an epic without an approved PRD.
 
 ## Known doc inconsistency (decided, encoded in lint)
 Rulebook 06 says "LH snaps to 4px grid" but the LOCKED type scale contains 10/14 and
