@@ -1,0 +1,2 @@
+# 01 · Refactoring UI (condensed)
+Hierarchy via size/weight/color, not just size. De-emphasize with color, not smaller-and-smaller. Spacing establishes grouping (start generous, remove). Use few, purposeful font sizes/weights. Real content first. Shadows for elevation, subtle in dark UI (tonal overlay: raise surface lightness, don't use pure black). Accent used sparingly = louder. Align optically. Tables: align numbers right, tabular figures.

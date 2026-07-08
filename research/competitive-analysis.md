@@ -9,9 +9,9 @@
 > viewed · **[assumption]** = inference to validate. Step-counts marked **[~]** are
 > approximate (full flows not all walkable this session — several stores 403'd; Mobbin
 > gave real screens for Wise + analogous investing onboarders).
-> **Rulebook note:** `design-system/rulebook/*` (Laws of UX file) isn't in the repo yet,
-> so the heuristic eval uses the standard Nielsen-10 + canonical Laws of UX; swap to the
-> rulebook's exact wording when that file lands.
+> **Rulebook note:** heuristic eval uses Nielsen-10 + the Laws of UX exactly as listed in
+> `design-system/rulebook/04-laws-of-ux.md` — Jakob · Hick · Fitts · Miller ·
+> Aesthetic-Usability · Peak-End · Doherty · Von Restorff. (Aligned; no Tesler/Zeigarnik.)
 
 ---
 
@@ -161,15 +161,15 @@ Nielsen-10 (N#) + Laws of UX. Each violation → the opportunity it hands us.
 ### 4.1 SBNRI (direct NRI incumbent)
 | Violation | Heuristic / Law | Our opening |
 |---|---|---|
-| App goes silent after upload; "months of unanswered emails" | **N1 Visibility of status**; **Zeigarnik** (open loops nag) | **Live KYC tracker** with per-step status + ETA + human fallback |
-| Wet signature on white paper | **N4 Consistency w/ digital norms**; **Tesler's Law** (don't push complexity to user) | Fully digital e-sign; absorb the complexity |
+| App goes silent after upload; "months of unanswered emails" | **N1 Visibility of status**; **Doherty** (users expect fast, continuous feedback — silence is its inverse) | **Live KYC tracker** with per-step status + ETA + human fallback |
+| Wet signature on white paper | **N4 Consistency w/ digital norms**; **Jakob's Law** (users expect the e-sign convention they use everywhere else) | Fully digital e-sign; absorb the complexity |
 | Nominee dead-end / circular guidance | **N5 Error prevention**; **N3 User control** | Skippable-with-reason nominee; clear back/out paths |
 | Regular-vs-direct not disclosed | **N1/ N8 Transparency** | Plain "regular plan (ARN)" disclosure + why |
 
 ### 4.2 Groww / Kuvera (India DIY bar)
 | Violation (for the NRI) | Heuristic / Law | Our opening |
 |---|---|---|
-| Resident-first; NRI eligibility discovered late / restricted | **N9 Help users recover**; **N1** | **Country-of-residence gate up front** (INDmoney does this — beat it on calm) |
+| Resident-first; NRI eligibility discovered late / restricted | **N9 Help users recover**; **N1**; **Hick's Law** (progressive disclosure — show only eligible funds) | **Country-of-residence gate up front** (INDmoney does this — beat it on calm) |
 | Tax = generic content, no pre-redemption TDS preview | **N10 Help & docs → but better: inline intelligence** | **Estimated TDS before confirm** + DTAA "tax saved" |
 | Dense, utilitarian surfaces (esp. INDmoney) | **Aesthetic-Usability**; **Miller's Law** (chunking) | Calm, chunked, premium hierarchy; tabular money |
 | Direct-plan model (Kuvera) | scope mismatch | We're ARN/regular — position on *guidance + trust*, not fee-zero |
@@ -177,11 +177,11 @@ Nielsen-10 (N#) + Laws of UX. Each violation → the opportunity it hands us.
 ### 4.3 Wise / Revolut (global benchmark)
 | Observation | Heuristic / Law | Our move |
 |---|---|---|
-| Wise: fee on the button, one-thing-per-screen, "why we ask" | **N1, N6 Recognition, Doherty** | **Adopt** as our KYC + order-review standard |
+| Wise: fee on the button, one-thing-per-screen, "why we ask" | **N1, N6 Recognition; Doherty; Von Restorff** (the cost/CTA is the standout) | **Adopt** as our KYC + order-review standard |
 | Revolut: pricing buried in plan maze, weekend FX surprise | **N8 Aesthetic/minimalist → hidden cost**; **trust erosion** | **Never** surprise-fee; show cost at decision point |
 | Both: pricing "confusing to everyday user" | **N2 Match real world** | Plain-language INR/USD, no jargon |
 
-**Cross-cutting laws we'll lean on:** **Jakob's Law** (match Groww/Wise conventions NRIs already know), **Peak-End** (Plum's "You're ready to invest!" → our first-investment + DTAA-activation moments), **Doherty Threshold** (<400ms feedback in KYC/order), **Peak trust** (Acorns-style "why we ask + we encrypt" on every sensitive field).
+**Cross-cutting laws we'll lean on** (all per `04-laws-of-ux.md`): **Jakob's Law** (match Groww/Wise conventions NRIs already know) · **Peak-End** (Plum's "You're ready to invest!" → our first-investment + DTAA-activation moments) · **Doherty** (<400ms feedback in KYC/order; optimistic UI + skeletons) · **Fitts's Law** (big, thumb-reachable primary actions) · **Von Restorff** (make the one key action — invest / confirm — stand out) · **Hick's Law** (reduce choices; progressive disclosure) · **Miller's Law** (chunk KYC + portfolio info) · **Aesthetic-Usability** (polish builds trust — critical for money; Acorns-style "why we ask + we encrypt" on every sensitive field).
 
 ---
 

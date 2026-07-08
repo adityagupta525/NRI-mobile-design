@@ -1,0 +1,2 @@
+# 05 · Fintech + NRI rulebook
+Trust cues near money (SEBI/AMFI, encryption, regulated entity). Confirm-before-pay + explicit mandate. Transparent fees/stamp duty. Money: Indian grouping, Tabular, cream, +/- with arrow + color. "As of" timestamps. NRI: INR/USD/AED, repatriable vs NRO, DTAA tax module, FATCA/CRS, PFIC. Onboarding via PAN/CKYC/DigiLocker/penny-drop (14→7 steps). Empty portfolio = teach + one CTA. Errors in payments = recover, never dead-end.

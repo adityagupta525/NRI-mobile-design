@@ -1,0 +1,2 @@
+# 04 · Laws of UX (apply)
+Jakob's Law (match fintech conventions users know). Hick's Law (reduce choices in flows; progressive disclosure). Fitts's Law (big/reachable primary actions, thumb zone). Miller's Law (chunk info). Aesthetic-Usability (polish builds trust — critical for money). Peak-End (nail order-confirmation + receipt delight). Doherty (<400ms feedback; optimistic UI + skeletons). Von Restorff (make the one key action stand out).
