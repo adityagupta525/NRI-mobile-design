@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run tokens:build)",
+      "Bash(npm run lint:design)",
+      "Bash(npm install)",
+      "Bash(node design-system/tokens/build.mjs)",
+      "Bash(node scripts/design-lint.mjs)"
+    ],
+    "deny": [
+      "Bash(rm -rf*)"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "centricity-obsidian-copper",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Obsidian-Copper design system — Phase-1 NRI investor mobile app (tokens + design lint).",
+  "scripts": {
+    "tokens:build": "node design-system/tokens/build.mjs",
+    "lint:design": "node scripts/design-lint.mjs"
+  },
+  "devDependencies": {
+    "style-dictionary": "^4.3.3"
+  }
+}
