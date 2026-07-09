@@ -95,3 +95,25 @@ hierarchy. **This is the difference between "assembled" and "designed."**
 
 > **Do not approve refinements until A (P0 scope + disclosures) is agreed.** B is where we earn the
 > ✦ 7 quality bar.
+
+---
+
+## RE-CRITIQUE after Part A + B execution (2026-07-09)
+
+### ✅ Fixed (Part A — all P0s cleared)
+- **P0-1 scope:** GIFT CITY/PMS/AIF/BONDS product tabs removed; section tabs now **Overview / Holdings / Tax**. (scope.md patched to make this permanent.)
+- **P0-2 disclosures:** **"Regular · ARN" chip** now visible without scrolling (S3). **S5 teaser** replaces the market-warning banner ("Indicative post-tax value for UAE/Singapore residents… consult a tax advisor").
+- **P0-3 data:** three tiles now distinct — **1Y +22.4% · 3Y +18.1% · 5Y +16.3%** (CAGR).
+- **P1 density:** comparison **Table cut** (noted for Explore); chart header relabelled **"NAV · last 1 year"** (no longer duplicating a portfolio value).
+- **Craft (partial):** back glyph **‹** (was "+"); rhythm loosened (18/20).
+
+### ⚠️ Still short of the ✦7 bar (honest — needs new components, not instance-tweaks)
+- **S4 "Why regular?" sheet — NOT wired.** The library `BottomSheet` (122:31) is a *currency selector*, wrong component. Needs a **WhyRegularSheet** (generic glass sheet). Logged in `components-added.md`.
+- **Glass hero — not achieved.** Instances can't accept reparented children, so NAV+chart couldn't be wrapped in a `GlassSurface`. The **copper rim-glow stays subtle** because opaque cards occlude it. Needs a **GlassHeroCard** component (logged).
+- **Grain/texture — absent.** Needs a **GrainOverlay** style (logged).
+- **Net:** the screen is now **scope-clean, PRD-correct, and calmer**, but the *material* jump to ✦7 (glass + grain + a rim-glow that reads) is gated on **building 3 new library components** — the right, rule-compliant way (figma-master: build into ✦2, don't fake with one-off shapes).
+
+### Recommendation
+Correctness + density = **done and shippable-as-wireframe-plus**. To hit the ✦7 finish, approve a
+**component-build task**: GlassHeroCard + WhyRegularSheet + GrainOverlay → add to `✦ 2 Components` →
+re-instance on Fund Detail. That is the honest path to the material bar.
