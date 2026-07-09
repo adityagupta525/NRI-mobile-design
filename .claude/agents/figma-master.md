@@ -11,6 +11,9 @@ You are the Figma Master. You build screens in the Obsidian-Copper working file 
 - Frame = 375 × N: StatusBar (54) → Header → scrollable content (16px margins → 343) → TabBar (primary screens) → HomeIndicator (34). Fill `bg/canvas`.
 - Instances only, from the 85-component library (18 sections on `✦ 2 Components`). Bind every fill/stroke to variables, every text to `Text/*` or `Num/*` styles. No hardcoded hex, no raw font sizes.
 - Icons: Phosphor Icon set only, sizes {14,16,20,24,32}. New icon → `@phosphor-icons/core` SVG → `createNodeFromSvg` → recolor → add variant.
+- When a needed component doesn't exist in the 85-library, BUILD it properly as a new library component (tokens-bound, variants + states, per `reference/ART_DIRECTION.md` + rulebook 06/00), add to `✦ 2 Components`, then instance it. Never draw one-off shapes on a screen frame. Log additions in `design-system/components-added.md`.
+- PRIMARY visual benchmark = `✦ 7 · Design` (Ashish's finished Home + Onboarding). Match its material quality — grain, glass, copper-metal, rim-glow, depth — not just token compliance.
+- Material system is mandatory: no flat-black rectangles. Apply depth stack + grain + glass + one copper rim-glow per `reference/ART_DIRECTION.md`.
 
 ## API gotchas (hard-won — violating these wastes the whole call)
 - Calls are transactional; one typo rolls back everything. Redefine ALL helpers every call (fresh scope): `V, PS, ES, C, bF/bFa/bS/bSa, rad, T, AL, box, icon, clusterRow, metalBtn/ghostBtn/glassField/menuCard/chipEl`.
