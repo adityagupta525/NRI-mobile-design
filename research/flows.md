@@ -12,11 +12,10 @@ moment · 💡 hook moment. Failure branches **recover, never dead-end** (rulebo
 
 ```mermaid
 flowchart TD
-  S([Login done]) --> C0{{"🛡 Country of residence?"}}
-  C0 -->|US/CA| USCA["⚠ US/CA gate (assumption-register §C1)<br/>Path A eligible-AMCs OR Path B waitlist + PFIC disclosure"]
-  C0 -->|Other| K1
-  USCA -->|Path B| WL[Waitlist captured] --> ENDL([Exit: honest, lead saved])
-  USCA -->|Path A| K1
+  S([Login done]) --> C0{{"🛡 Pre-KYC eligibility · Country of residence?"}}
+  C0 -->|"US/CA (non-focus)"| USCA["🛡 Early gate — Path B (DECIDED §C1)<br/>honest 'not yet' + PFIC/FAPI disclosure + waitlist"]
+  C0 -->|"UAE · SG (focus) · other in-scope"| K1
+  USCA --> WL[Waitlist / lead captured] --> ENDL([★ Exit: honest, lead saved])
 
   K1["1 · PAN entry<br/>(why we ask)"] --> K2
   K2["2 · CKYC fetch"] --> K2Q{{"CKYC found?"}}
@@ -69,11 +68,13 @@ Fee/charge transparency on the action surface (Wise pattern; rulebook 05).
 flowchart TD
   P([Portfolio / Holding]) --> RD["Redeem — select units / amount"]
   RD --> CALC["🛡 Compute holding period + gain type<br/>(STCG/LTCG, equity vs debt)"]
-  CALC --> DTAA{{"⬥ DTAA status?"}}
-  DTAA -->|UAE/SG active| TDS0["💡 TDS estimate ≈ 0 + 'DTAA saved ₹X'"]
-  DTAA -->|not activated 💡| PROMPT["prompt: activate DTAA (est. saving ₹X)<br/>→ TRC + Form 10F flow"]
-  DTAA -->|UK/US/other| TDSN["💡 Estimated TDS shown (rate × gain + surcharge/cess)"]
-  PROMPT --> TDSN
+  CALC --> DTAA{{"⬥ DTAA status & corridor?"}}
+  DTAA -->|"UAE/SG — active"| TDS0["💡 TDS ≈ 0 + 'DTAA saved ₹X'"]
+  DTAA -->|"UAE — not activated 💡"| PUAE["prompt: activate DTAA<br/>UAE TRC (MoF, prev-year only → get ~60d early) + Form 10F"]
+  DTAA -->|"SG — not activated 💡"| PSG["prompt: activate DTAA<br/>SG COR (IRAS, NRIC) + Form 10F + no-PE"]
+  DTAA -->|"UK/other in-scope"| TDSN["💡 Estimated TDS shown (rate × gain + surcharge/cess)"]
+  PUAE --> TDSN
+  PSG --> TDSN
   TDS0 --> PREV
   TDSN --> PREV["★💡 Pre-redemption TDS PREVIEW<br/>(net proceeds shown BEFORE confirm) + 'consult a tax advisor' hedge"]
   PREV --> RCONF{{"Confirm redemption? 🛡"}}
@@ -108,11 +109,11 @@ Bounce-risk nudge is honest utility (hook-strategy §4).
 ---
 
 ## Cross-flow compliance checkpoints (🛡 summary)
-- **Country eligibility** enforced at KYC (step 6) *and* per-fund at order (BRD; Platform-Notes NOTE 3).
+- **Country eligibility**: **early pre-KYC gate** (US/CA → Path B waitlist, §C1) *and* at KYC step 6 *and* per-fund at order (BRD; Platform-Notes NOTE 3).
 - **NRE/NRO source** explicit at every order/SIP (BRD §2.1).
 - **Confirm-before-pay + mandate** on all money movement (rulebook 05).
 - **TDS at source** shown *before* redemption confirm (BRD §3.3).
-- **DTAA** = TRC + Form 10F states, always hedged (BRD §3.4).
+- **DTAA** = TRC/COR + Form 10F states, **corridor-branched (UAE: MoF, prev-year only · SG: COR/IRAS, NRIC)**, always hedged (BRD §3.4).
 - **FATCA/CRS + PFIC (US)** at onboarding (BRD §3.5).
 
 ## Peak-End moments (★ to design with craft)

@@ -19,12 +19,24 @@ hook nobody else pulls.
 **Candidate hooks, ranked (evidence → confidence):**
 | # | Hook | Evidence | Confidence |
 |---|---|---|---|
-| **H1** | **See your after-tax reality** — estimated **TDS before you redeem** + DTAA "tax saved" | Theme 4/5 shock; BRD §3.3/3.4 mandate; no competitor does it | 🟢 primary |
-| **H2** | **Activate 0% tax** (UAE/Gulf/SG) — guided DTAA (TRC + Form 10F) with a live savings counter | Theme 5; Arjun persona; BRD §3.4.5 | 🟢 (dep. on assumption #1/#2) |
-| **H3** | **Know before you start** — country-of-residence eligibility in 60s (no wasted KYC) | Theme 2/8; Priya; INDmoney proves demand | 🟢 |
+| **H1** | **See your after-tax reality** — estimated **TDS before you redeem** + DTAA "tax saved" | Theme 4/5 shock; BRD §3.3/3.4 mandate; no competitor does it | 🟢 **co-spearhead** |
+| **H2** | **Activate 0% tax** — guided DTAA (TRC/COR + Form 10F) with a live savings counter | Theme 5; **Arjun (UAE) + Sam (SG)**; BRD §3.4.5 | 🟢 **co-spearhead (focus corridors)** |
+| **H3** | **Know before you start** — country-of-residence eligibility in 60s (no wasted KYC) | Theme 2/8; INDmoney proves demand | 🟠 **priority ↓** (see note) |
 | **H4** | **One calm home for scattered India wealth** — repatriable/NRE-NRO labelled, "as of" honest | Theme 6/8; Sam | 🟡 |
 
-**H1 is the spearhead.** H2/H3 are corridor-specific amplifiers (Arjun→H2, Priya→H3, Sam→H4).
+**Corridor-focus (decision §C0):** focus = **UAE + Singapore** — *both DTAA-0% corridors*, so
+**H1 + H2 are CO-SPEARHEADS** here (Arjun activates; Sam consolidates + activates). **H3's
+priority drops** because UAE/SG are **not restricted** — the eligibility gate is now mainly the
+**US/Canada waitlist** entry (Path B, §C1), not a focus-corridor hook. **H4** serves Sam's
+consolidation need.
+
+> **UAE vs SG — the DTAA/TRC difference H2 must handle** (both reach 0% CG, but activation differs):
+> - **UAE:** TRC issued by the **MoF**, **only for the *previous* year** → timing trap; prompt
+>   users to obtain it **~60 days before** redeeming (BRD §3.4.4).
+> - **Singapore:** TRC = **Certificate of Residence (COR)** issued by **IRAS**; tax ID = **NRIC**;
+>   must be **SG-resident in the year the gain arises** + **no PE in India**.
+> - **Common:** both need **Form 10F + no-PE self-declaration + ITR disclosure**, obtained
+>   **before redemption**; always hedged (ITAT under appeal). The DTAA flow branches on corridor.
 
 ---
 

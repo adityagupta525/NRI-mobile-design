@@ -146,7 +146,7 @@ NRI incumbents are mid/low-craft, GIFT-City & remittance players sit in adjacent
 | From | We win because | Persona |
 |---|---|---|
 | **SBNRI** | No silence, no wet-signature, live KYC status + human — *trust through transparency* | Arjun, Sam |
-| **Groww/Coin** | We're **NRI-native**: country-eligibility + DTAA/TDS *intelligence*, not a resident app with an NRI toggle | Arjun, Priya |
+| **Groww/Coin** | We're **NRI-native**: country-eligibility + DTAA/TDS *intelligence*, not a resident app with an NRI toggle | Arjun, Sam (focus) |
 | **INDmoney** | Same eligibility smarts **but calm & premium**, with a real DTAA-activation + pre-redemption-TDS flow | Arjun |
 | **Kuvera** | Guided *compliance flows* (TRC/10F, 15CA/CB), not just PDFs — done beautifully | Sam |
 | **ICICI/HDFC** | Modern mobile craft + tax layer vs legacy 3-in-1 forms | Sam |

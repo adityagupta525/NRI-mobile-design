@@ -41,7 +41,9 @@ graph TD
   subgraph AUTHF[Auth · pre-app]
     AUTH --> A1[Splash] --> A2[Login +91 PhoneInput] --> A3[OTP] --> A4[MPIN/PIN set] --> A5[Biometric enable]
   end
-  A5 --> KYC[Onboarding / KYC]
+  A5 --> ELIG0{Pre-KYC eligibility · country of residence}
+  ELIG0 -->|US/CA non-focus| WAIT[US/CA waitlist + PFIC/FAPI disclosure · lead capture]
+  ELIG0 -->|UAE · SG focus · other in-scope| KYC[Onboarding / KYC]
 
   subgraph KYCF[Onboarding · KYC 7-step · one-time + re-KYC]
     KYC --> K1[PAN] --> K2[CKYC fetch] --> K3[DigiLocker / Video-KYC + IPV] --> K4[Bank penny-drop] --> K5[Nominee] --> K6[NRI status + corridor] --> K7[FATCA/CRS +PFIC gate]
@@ -98,6 +100,8 @@ Priority = build order signal (RICE lands in Part D `backlog.md`).
 | Area | Screen | Priority | Notes / dependency |
 |---|---|---|---|
 | Auth | Splash · Login(+91) · OTP · MPIN · Biometric | **P1** | gate to everything; state-frames needed |
+| Eligibility | **Pre-KYC eligibility check** (country of residence) | **P1** | early gate (§C1); routes US/CA → waitlist before wasted effort |
+| Eligibility | US/CA waitlist + PFIC/FAPI disclosure (lead capture) | **P2** | Path B only; non-focus corridor |
 | KYC | 7 steps + status tracker + re-KYC | **P1** | biggest abandonment risk; needs "why we ask" + live status |
 | Home | Dashboard (4 states) + attention slot | **P0** | hook surface; state-machine |
 | Invest | Explore/Filter | **P1** | |
@@ -124,6 +128,8 @@ tabular cream numerals, one primary action, safe areas, APCA-compliant contrast.
 ---
 
 ## 4. Open IA questions (for Ashish / validate)
+- ✅ **US/CA gate placement — DECIDED:** an **early pre-KYC eligibility check** (country of
+  residence) routes US/CA → **Path B waitlist** *before* any wasted KYC effort (§C1). Country
+  is re-confirmed at KYC step 6 for corridor-specific rules (DTAA/FATCA).
 - **Goals:** Home-surfaced snapshot + full management under Profile — or its own stack? [assumption]
-- **US/CA gate placement:** at KYC step 6 (NRI status) vs an earlier pre-KYC eligibility check — depends on `assumption-register.md` §C1 decision. [blocked on business]
 - **India-visit mode:** contextual touches (recommended) vs a full mode — scope.md "ambiguous → ask Ashish".

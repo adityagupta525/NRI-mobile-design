@@ -51,8 +51,16 @@ flows + the visual/tone bet. #8–#10 de-risk positioning/segmentation.
 
 ## C. Open strategic decisions (business-owned, block relevant design)
 
-### C1 — US/Canada NRI stance in Phase-1: **serve-with-restrictions** vs **graceful waitlist?**
-**Owner: Business** (with Compliance). **Status: OPEN — decision needed before the eligibility-gate screen is designed.** [decision, not assumption]
+### C0 — Focus markets (DECIDED 2026-07-08, Ashish/business)
+**FOCUS = UAE + Singapore** (both DTAA-0% capital-gains corridors — our sharpest wedge).
+UK and other DTAA corridors remain **in scope but not focus**. **US/Canada = in scope but
+NOT focus → Path B only** (see C1). RICE *reach* scores weight UAE + SG demand first.
+
+### C1 — US/Canada NRI stance in Phase-1 — **DECIDED: Path B (graceful gate + waitlist)**
+**Owner: Business** (with Compliance). **Status: ✅ DECIDED 2026-07-08 — Path B.**
+US/CA users get an **honest early eligibility gate + PFIC/FAPI disclosure + waitlist / lead
+capture**, with **full serve-with-restrictions (Path A) deferred to a later phase** once the
+US legal review + AMC-allowance list land. (Path A spec retained below for that future phase.)
 
 **Why it matters:** ~4.5M+ Indians in the US and ~1.7M in Canada are a huge slice of the
 market, but FATCA makes most Indian AMCs **reject US/CA NRIs**, and Indian MFs are **PFICs**
@@ -76,8 +84,9 @@ directly and dated** before we promise anything in UX.
 | Risk | Over-promise → frozen accounts, the exact SBNRI failure | Under-serve a large segment; competitor captures them |
 | Kano | Basic (honesty) + Performance (eligible-fund filter) | Basic (honesty) |
 
-**Recommendation (for Ashish/business to arbitrate):** **Path B for Phase-1** (honest
-waitlist + PFIC disclosure + GIFT-City interest tag) because US legal sign-off is a hard
-blocker and Priya's validated pain is *"found out too late"* — a truthful gate beats a
-hopeful flow that fails. Revisit Path A once the AMC list + US legal review land. [assumption —
-validate with #5 in the Top-10]
+**Decision (recorded):** **Path B for Phase-1** (honest early gate + waitlist + PFIC
+disclosure + GIFT-City interest tag) — US legal sign-off is a hard blocker and the US
+persona's validated pain is *"found out too late,"* so a truthful gate beats a hopeful flow
+that fails. **Path A (serve-with-restrictions) is deferred**, to be revisited once the AMC
+list + US legal review land. Gate placement = **early pre-KYC eligibility check** (see
+`ia-sitemap.md`). Still validate the *waitlist conversion* assumption (#5) with real US NRIs.
