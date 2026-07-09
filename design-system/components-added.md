@@ -5,15 +5,12 @@
 
 | Date | Component | Variants / states | Tokens bound | Added for screen | Notes |
 |---|---|---|---|---|---|
-| _example_ | GlassSegmentedControl | 2/3-segment · default/active | glass recipe, copperShimmer | Fund Detail | frosted toggle per ART_DIRECTION §glass |
+| 2026-07-09 | **GlassHeroCard** (`437:191`) | State = default / **with-glow** | reuses **GlassSurface `22:4`** (glass recipe, bound stroke/radius vars) + **RadialGlow `22:5`**; NAV numerals cream | Fund Detail | Composite hero: NAV label+value + LineChart + range toggle on frosted glass. `text.number` var name unmatched → cream literal fallback (flag). |
+| 2026-07-09 | **WhyRegularSheet** (`438:178`) | single (BottomSheet-style) | reuses **GlassSurface `22:4`**; title→`text.primary`, body→`text.secondary` (bound); metal CTA instance | Fund Detail (S4) | Glass sheet: grabber + "Why a Regular plan?" + body + metal "Got it". |
+| 2026-07-09 | **GrainOverlay** (`439:179`) | single | image fill (generated 32×32 RGBA noise PNG, TILE, OVERLAY ~4%) | Fund Detail hero | Real film-grain via in-sandbox PNG (not a flat placeholder). Overlay on elevated surfaces. |
+| _example_ | GlassSegmentedControl | 2/3-segment · default/active | glass recipe, copperShimmer | — | (template row) |
 
-## Deferred — needed but NOT yet built (honest status; Fund Detail taste pass 2026-07-09)
-No new components were *added* this pass — the taste pass used existing instances. These need
-proper library components (variants + states, tokens-bound) before the ✦7 material bar is met.
-Instances can't accept reparented children, so a real glass hero can't be faked on a screen frame.
-
-| Component | Why needed | Unblocks |
-|---|---|---|
-| **GlassHeroCard** | Wrap NAV + chart as one frosted-glass hero so the copper rim-glow actually reads (ART_DIRECTION §3/§5). Current opaque cards occlude the glow → it stays subtle. | true hero moment + glass material |
-| **WhyRegularSheet** (or generic content BottomSheet) | S4 explainer. Library `BottomSheet` 122:31 is a currency-selector, not a generic container. Need a blank glass sheet with title/body/CTA slots. | S4 wiring |
-| **GrainOverlay** (style/effect) | ~3–5% film-grain on elevated surfaces (ART_DIRECTION §2) — the ✦7 signature texture. | tactile depth |
+All three built on `✦ 2 · Components` (page `3:3`) reusing existing GlassSurface + RadialGlow
+(no glass/glow recreated). Re-instanced on Fund Detail: flat NAV+chart+toggle → one
+**GlassHeroCard (with-glow)** + **GrainOverlay**; one copper glow (restraint); anti-drift OK
+(copper only, no purple/blue/teal). `npm run apca` now wired (0 errors) + `npm run lint:design` 0.

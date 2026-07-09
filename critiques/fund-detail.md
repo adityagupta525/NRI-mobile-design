@@ -117,3 +117,24 @@ hierarchy. **This is the difference between "assembled" and "designed."**
 Correctness + density = **done and shippable-as-wireframe-plus**. To hit the ✦7 finish, approve a
 **component-build task**: GlassHeroCard + WhyRegularSheet + GrainOverlay → add to `✦ 2 Components` →
 re-instance on Fund Detail. That is the honest path to the material bar.
+
+---
+
+## UPDATE — component-build + material pass done (2026-07-09)
+- **3 components built on `✦ 2` reusing GlassSurface + RadialGlow** (no glass/glow recreated):
+  **GlassHeroCard** (default/with-glow), **WhyRegularSheet** (S4 glass sheet), **GrainOverlay**
+  (real generated noise PNG). Logged in `components-added.md`.
+- **Re-instanced on Fund Detail:** flat NAV+chart+toggle → **one GlassHeroCard (with-glow)** as a
+  frosted-glass hero, + **GrainOverlay** on the hero. **One copper glow** (restraint). The hero now
+  reads as a distinct elevated glass moment vs. the flatter cards — the "designed" jump.
+- **`npm run apca` now wired and real:** 0 errors (all body text 80–96 Lc); 4 role-dependent warnings
+  surfaced (copper-on-canvas 47, ink-on-copper CTA 47, red/amber on surface 35/48) — legit "copper/red
+  = large/emphasis only" findings for Ashish to review. `lint:design` 0 errors.
+
+### Remaining (smaller, honest)
+- S4 sheet exists as a component but is **not yet wired as an interactive overlay** off the plan chip
+  (static state artifact would need placing/prototyping).
+- Grain + glow read **subtly** at screenshot scale — good on-device; could push intensity if desired.
+- `text.number` variable name didn't match → NAV value uses the cream literal (flagged); bind once the
+  variable name is confirmed.
+- APCA warnings on copper/red are a **token-design conversation**, not a screen defect.
