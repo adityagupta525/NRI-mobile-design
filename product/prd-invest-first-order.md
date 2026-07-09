@@ -3,7 +3,17 @@
 **Epic:** Explore/Filter → **Fund Detail** → Amount Input (SIP/lumpsum) → Order Review
 (NRE/NRO + eligibility) → Payment → Receipt
 **Author:** product-strategist (with fintech-ux, growth-hooks) · **Date:** 2026-07-08
-**Status:** DRAFT for Ashish approval · **Focus corridors:** UAE + Singapore (§C0)
+**Status:** ✅ APPROVED (Ashish, 2026-07-08) · **Focus corridors:** UAE + Singapore (§C0)
+
+**Approval decisions on open questions:**
+- **Q4 (multi-currency on Amount): IN** — INR primary + **AED/SGD reference line** by residence.
+  **Display only, no conversion engine.** (S8 updated.)
+- **Q3 (S5 teaser wording):** draft during Fund Detail build, but **sign-off does NOT block the
+  screen** — if wording isn't compliance-signed-off, ship the **S5 slot designed but
+  feature-flagged/hidden.** (Noted in brief.)
+- **Q1 (payment rails) & Q2 (eligibility data source):** external deps — design proceeds with
+  **method-agnostic payment patterns** + an **assumed eligibility API**; both marked
+  **[blocked on ops/tech]** in handoff.
 **Source docs:** `voice-of-user.md`, `competitive-analysis.md`, `flows.md` §2, `journey-maps.md`
 (Journey B), `hook-strategy.md`, `ia-sitemap.md`, `design-thesis.md`, rulebook 00/04/05/06.
 **Kano key:** ⬜ Basic (must-have) · 🟦 Performance (more = better) · 🟪 Delight.
