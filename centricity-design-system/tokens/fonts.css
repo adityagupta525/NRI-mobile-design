@@ -1,0 +1,110 @@
+/* Centricity — Font faces
+   Two families only:
+   Tabular = numerals, currency, data (tabular figures)
+   Figtree = UI text, headings, body — and uppercase micro data-labels (wide tracking) */
+
+@font-face {
+  font-family: "Tabular";
+  src: url("../assets/fonts/Tabular-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Tabular";
+  src: url("../assets/fonts/Tabular-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Tabular";
+  src: url("../assets/fonts/Tabular-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Tabular";
+  src: url("../assets/fonts/Tabular-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Tabular";
+  src: url("../assets/fonts/Tabular-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Tabular";
+  src: url("../assets/fonts/Tabular-MediumItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Tabular";
+  src: url("../assets/fonts/Tabular-Semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Tabular";
+  src: url("../assets/fonts/Tabular-SemiboldItalic.otf") format("opentype");
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Tabular";
+  src: url("../assets/fonts/Tabular-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Tabular";
+  src: url("../assets/fonts/Tabular-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("../assets/fonts/Figtree-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("../assets/fonts/Figtree-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("../assets/fonts/Figtree-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("../assets/fonts/Figtree-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("../assets/fonts/Figtree-ExtraBold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("../assets/fonts/Figtree-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+:root {
+  --font-ui: "Figtree", -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  --font-numeral: "Tabular", "Figtree", monospace;
+  /* Not a separate family — alias to Figtree. Data-labels/doc chrome that reference
+     --font-mono render in Figtree; the type system is exactly Figtree + Tabular. */
+  --font-mono: var(--font-ui);
+}

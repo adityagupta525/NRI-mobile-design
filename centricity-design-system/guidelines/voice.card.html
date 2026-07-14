@@ -1,0 +1,54 @@
+<!-- @dsCard group="Content" viewport="700x760" name="Voice & copy tokens" subtitle="Compliance-safe copy layer by moment, with emotional targets — from content/copy.js" -->
+<!DOCTYPE html><html><head>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;padding:20px;background:#0D0D0D;background:var(--surface-canvas);color:var(--text-primary);font-family:var(--font-ui);}
+  .intro{font-size:13px;line-height:1.65;color:var(--text-secondary);margin-bottom:20px;}
+  .intro b{color:var(--copper-300);}
+  h4{font-family:var(--font-mono);font-size:10px;letter-spacing:.6px;text-transform:uppercase;color:var(--text-meta);margin:22px 0 12px;}
+  .card{background:var(--surface-card);border-radius:12px;padding:14px 16px;margin-bottom:10px;}
+  .key{font-family:var(--font-mono);font-size:10px;color:var(--copper-400);margin-bottom:6px;}
+  .t{font-size:15px;font-weight:600;margin-bottom:4px;}
+  .b{font-size:13px;line-height:1.55;color:var(--text-secondary);}
+  .cta{display:inline-block;margin-top:8px;font-size:12px;font-weight:600;color:var(--copper-300);}
+  .emo{float:right;font-family:var(--font-mono);font-size:9px;letter-spacing:.5px;text-transform:uppercase;padding:3px 8px;border-radius:999px;}
+  .calm{background:rgba(156,163,175,.16);color:var(--grey-slate);}
+  .trust{background:rgba(182,147,119,.16);color:var(--copper-300);}
+  .momentum{background:rgba(81,211,96,.14);color:var(--green-base);}
+  .celebration{background:var(--accent-metal);color:var(--ink-900);}
+  .disc{background:rgba(204,144,0,.10);border:1px solid rgba(204,144,0,.28);}
+  .disc .b{color:var(--text-secondary);}
+</style></head>
+<body>
+<div id="root"></div>
+<script type="module">
+import { COPY } from "../content/copy.js";
+const el = document.getElementById("root");
+function esc(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;"); }
+function card(key, o, disc){
+  const emo = o.emotion ? `<span class="emo ${o.emotion}">${o.emotion}</span>` : "";
+  return `<div class="card ${disc?'disc':''}">${emo}<div class="key">${key}</div>`+
+    (o.title?`<div class="t">${esc(o.title)}</div>`:"")+
+    `<div class="b">${esc(o.body||o.text||o.cue||"")}</div>`+
+    (o.cta?`<div class="cta">${esc(o.cta)} \u2192</div>`:"")+`</div>`;
+}
+let html = `<div class="intro"><b>Second person, plain English, Indian warmth.</b> Jargon earns a gloss. Errors reassure and give the next action. Empty states motivate with one CTA. <b>Compliance:</b> never guaranteed returns \u2014 numbers are estimates; the market-risk disclaimer + asterisk gloss are mandatory on projection/invest screens.</div>`;
+html += `<h4>Mandated disclaimers</h4>`+
+  card("disclaimer.market", COPY.disclaimer.market, true)+
+  card("disclaimer.asterisk", COPY.disclaimer.asterisk, true)+
+  card("disclaimer.pastPerformance", COPY.disclaimer.pastPerformance, true);
+html += `<h4>TDS / DTAA \u2014 calculation, never promise</h4>`+
+  Object.entries(COPY.tax).map(([k,v])=>card("tax."+k, v)).join("");
+html += `<h4>KYC \u2014 anxiety-reducing, time + prep cues</h4>`+
+  card("kyc.intro", COPY.kyc.intro)+
+  ["step1","step4","step6"].map(k=>card("kyc."+k, COPY.kyc[k])).join("");
+html += `<h4>Empty states \u2014 motivate, one CTA</h4>`+
+  ["portfolio","goals"].map(k=>card("empty."+k, COPY.empty[k])).join("");
+html += `<h4>Errors \u2014 reassure, next action</h4>`+
+  ["payment","kycRejected"].map(k=>card("error."+k, COPY.error[k])).join("");
+html += `<h4>Success \u2014 momentum & the one celebration</h4>`+
+  card("success.firstOrder", COPY.success.firstOrder)+
+  card("success.orderPlaced", COPY.success.orderPlaced);
+el.innerHTML = html;
+</script>
+</body></html>

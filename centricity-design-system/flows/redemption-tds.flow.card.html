@@ -1,0 +1,68 @@
+<!-- @dsCard group="Flows" viewport="1400x620" name="Flow — Redemption with TDS preview" subtitle="Select fund → amount → exit-load → TDS/DTAA preview → confirm → processing, with transitions" -->
+<!DOCTYPE html><html><head>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="flow.css">
+</head><body>
+<h1>Redemption with TDS preview</h1>
+<div class="sub">The compliance-heavy exit. An exit-load warning sheet (amber, informational) precedes a TDS/DTAA preview that shows the calculation — never a promise ("you could keep ₹4,25,250 more*"). Processing ends in a Toast, not the celebration moment.</div>
+<div class="strip">
+
+  <div class="step"><div><div class="frame"><div class="scr"><div class="mScr">
+    <div class="mBar"><span>‹</span><span>REDEEM</span></div>
+    <div class="mTitle">Redeem units</div>
+    <div class="mMuted" style="margin-top:6px">Axis Bluechip · Folio 77340011/1</div>
+    <div class="mLabel" style="margin-top:16px">REDEMPTION AMOUNT</div>
+    <div style="display:flex;align-items:baseline;gap:4px;margin-top:6px"><span class="mHero" style="font-size:28px">₹</span><span class="mHero" style="font-size:28px">40,000</span></div>
+    <div style="height:1px;background:var(--border-hairline);margin:10px 0"></div>
+    <div class="mMuted">Available ₹65,700 · <span style="color:var(--copper-300)">Redeem all</span></div>
+    <div style="position:absolute;left:14px;right:14px;bottom:16px"><div class="mCta">Continue</div></div>
+  </div></div></div>
+  <div class="cap"><div class="n">01 · Amount</div><div class="t">Redeem units</div><div class="d">AmountInput; FolioSelector if multiple folios.</div></div></div></div>
+
+  <div class="arrow"><div class="m">sheet up<br>amber warn</div><div class="line"></div></div>
+
+  <div class="step"><div><div class="frame"><div class="scr">
+    <div style="position:absolute;inset:0;background:rgba(0,0,0,0.5)"></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;background:var(--surface-sheet);border-radius:16px 16px 0 0;padding:14px 16px 18px">
+      <div style="width:36px;height:4px;border-radius:999px;background:var(--grey-600);margin:0 auto 14px"></div>
+      <div style="display:flex;align-items:center;gap:8px"><span style="color:var(--amber-base)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg></span><span style="font-size:15px;font-weight:700">Exit load applies</span></div>
+      <div class="mCard" style="margin-top:12px">
+        <div style="display:flex;justify-content:space-between;padding:5px 0"><span class="mLabel">EXIT LOAD</span><span class="mHero" style="font-size:12px;font-weight:700">1% (&lt;365d)</span></div>
+        <div style="display:flex;justify-content:space-between;padding:5px 0;border-top:1px solid var(--border-hairline)"><span class="mLabel">HELD</span><span class="mHero" style="font-size:12px;font-weight:700">182 days</span></div>
+        <div style="display:flex;justify-content:space-between;padding:5px 0;border-top:1px solid var(--border-hairline)"><span class="mLabel">CHARGE</span><span class="mHero" style="font-size:12px;font-weight:700;color:var(--amber-base)">− ₹400</span></div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:12px"><div style="flex:1;text-align:center;border:1px solid var(--copper-shimmer);border-radius:8px;padding:10px;font-size:12px;font-weight:600">Cancel</div><div style="flex:1;text-align:center;border:1px solid rgba(204,144,0,0.4);border-radius:8px;padding:10px;font-size:12px;font-weight:700;color:var(--amber-base)">Proceed</div></div>
+    </div>
+  </div></div>
+  <div class="cap"><div class="n">02 · Exit load</div><div class="t">ExitLoadWarningSheet</div><div class="d">Amber informational (not error); factual charge, disclaimer.</div></div></div></div>
+
+  <div class="arrow"><div class="m">push</div><div class="line"></div></div>
+
+  <div class="step"><div><div class="frame"><div class="scr"><div class="mScr">
+    <div class="mBar"><span>‹</span><span>TDS PREVIEW</span></div>
+    <div class="mTitle">Tax preview</div>
+    <div class="mCard" style="margin-top:14px">
+      <div style="display:flex;justify-content:space-between;padding:6px 0"><span class="mLabel">GROSS GAIN</span><span class="mHero" style="font-size:12px;font-weight:600">₹28,350</span></div>
+      <div style="display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid var(--border-hairline)"><span class="mLabel">TDS @ STANDARD</span><span class="mHero" style="font-size:12px;font-weight:600">₹5,95,350</span></div>
+      <div style="display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid var(--border-hairline)"><span class="mLabel">TDS @ DTAA</span><span class="mHero" style="font-size:12px;font-weight:600;color:var(--copper-200)">₹1,70,100</span></div>
+    </div>
+    <div class="mCard" style="margin-top:10px;background:rgba(182,147,119,0.10);border-color:var(--copper-shimmer)">
+      <div style="font-size:12px;color:var(--copper-200);font-weight:600">With DTAA active, you could keep<br><span class="mHero" style="font-size:16px">₹4,25,250 more*</span></div>
+    </div>
+    <div class="mMuted" style="font-size:9px;margin-top:8px">*Estimate based on current DTAA rates. Not tax advice.</div>
+    <div style="position:absolute;left:14px;right:14px;bottom:16px"><div class="mCta">Confirm redemption</div></div>
+  </div></div></div>
+  <div class="cap"><div class="n">03 · TDS / DTAA</div><div class="t">Tax preview</div><div class="d">Shows the calculation with asterisk gloss — "could keep", never "will save".</div></div></div></div>
+
+  <div class="arrow"><div class="m">biometric →<br>toast</div><div class="line"></div></div>
+
+  <div class="step"><div><div class="frame"><div class="scr"><div class="mScr" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+    <div style="width:64px;height:64px;border-radius:50%;border:2px solid var(--copper-shimmer);border-top-color:var(--copper-400);"></div>
+    <div style="font-size:15px;font-weight:700;margin-top:20px">Redemption placed</div>
+    <div class="mMuted" style="margin-top:6px">₹39,600 net will reach your NRE account in 2–3 working days.</div>
+    <div style="position:absolute;left:14px;right:14px;bottom:20px"><div style="background:var(--surface-glass);border:1px solid var(--copper-shimmer);border-radius:999px;padding:11px 14px;display:flex;align-items:center;gap:8px;justify-content:center"><span style="width:18px;height:18px;border-radius:50%;background:var(--data-positive);color:var(--ink-900);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700">✓</span><span style="font-size:12px">Redemption processing</span></div></div>
+  </div></div></div>
+  <div class="cap"><div class="n">04 · Processing</div><div class="t">Toast confirm</div><div class="d">Routine outcome → Toast + Spinner, NOT the celebration moment (reserved for first order).</div></div></div></div>
+
+</div>
+</body></html>

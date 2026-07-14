@@ -1,0 +1,13 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Semantic data colors" subtitle="Desaturated — gain/loss/warning only, never decorative" -->
+<!DOCTYPE html>
+<html><head><link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;padding:16px;background:#0D0D0D;background:var(--surface-canvas);font-family:var(--font-ui);}
+.row{display:flex;gap:10px}
+.sw{flex:1;height:96px;border-radius:var(--radius-md);display:flex;flex-direction:column;justify-content:flex-end;padding:10px;color:var(--ink-900);font-size:11px;font-weight:600}
+.hex{font-family:var(--font-numeral);opacity:.7;font-size:10px}</style></head>
+<body><div class="row">
+<div class="sw" style="background:var(--green-base)">Green · gain<span class="hex">#51D360</span></div>
+<div class="sw" style="background:var(--red-base)">Red · loss/alert<span class="hex">#FF6038</span></div>
+<div class="sw" style="background:var(--amber-base)">Amber · warning<span class="hex">#CC9000</span></div>
+<div class="sw" style="background:var(--ink-900);color:var(--cream-200)">Ink · on-copper<span class="hex">#0D0D0D</span></div>
+</div></body></html>

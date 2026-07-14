@@ -1,0 +1,67 @@
+<!-- @dsCard group="Flows" viewport="1200x620" name="Flow — Portfolio deep-dive" subtitle="Overview → holdings → fund detail → performance, tab crossfade + push" -->
+<!DOCTYPE html><html><head>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="flow.css">
+</head><body>
+<h1>Portfolio deep-dive</h1>
+<div class="sub">From the value hero to a single fund's performance. Sub-nav Tabs crossfade (150ms); tapping a holding pushes to fund detail with parallax. Numerals count-up on first paint; the line chart traces left→right over 600ms.</div>
+<div class="strip">
+
+  <div class="step"><div><div class="frame"><div class="scr"><div class="mScr">
+    <div class="mBar"><span>9:41</span><span>▟▟▟</span></div>
+    <div class="mLabel">TOTAL PORTFOLIO VALUE</div>
+    <div class="mHero" style="font-size:28px;margin-top:6px">₹3,42,18,650</div>
+    <div style="display:flex;gap:14px;margin-top:12px">
+      <div><div class="mLabel">TODAY</div><div class="mHero" style="font-size:12px;color:var(--data-positive);font-weight:600">+₹24,000</div></div>
+      <div><div class="mLabel">XIRR</div><div class="mHero" style="font-size:12px;font-weight:600">14.82%</div></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:14px;border-bottom:1px solid var(--border-hairline);padding-bottom:8px">
+      <span style="font-size:12px;font-weight:600;color:var(--text-primary);border-bottom:2px solid var(--copper-400);padding-bottom:6px">Overview</span>
+      <span style="font-size:12px;color:var(--text-tertiary)">Holdings</span>
+      <span style="font-size:12px;color:var(--text-tertiary)">Transactions</span>
+    </div>
+    <div class="mCard" style="margin-top:12px"><div class="mLabel">ALLOCATION</div>
+      <div style="display:flex;height:8px;border-radius:999px;overflow:hidden;margin-top:8px"><span style="width:62%;background:var(--copper-500)"></span><span style="width:24%;background:var(--copper-300)"></span><span style="width:14%;background:var(--grey-500)"></span></div>
+    </div>
+  </div></div></div>
+  <div class="cap"><div class="n">01 · Overview</div><div class="t">Value hero</div><div class="d">Count-up numerals, AllocationBar, Tabs sub-nav.</div></div></div></div>
+
+  <div class="arrow"><div class="m">tab<br>crossfade 150</div><div class="line"></div></div>
+
+  <div class="step"><div><div class="frame"><div class="scr"><div class="mScr">
+    <div class="mBar"><span>‹</span><span>HOLDINGS</span></div>
+    <div style="display:flex;gap:10px;margin:6px 0 12px;border-bottom:1px solid var(--border-hairline);padding-bottom:8px">
+      <span style="font-size:12px;color:var(--text-tertiary)">Overview</span>
+      <span style="font-size:12px;font-weight:600;border-bottom:2px solid var(--copper-400);padding-bottom:6px">Holdings</span>
+    </div>
+    <div class="mCard" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div><div style="font-size:12px;font-weight:600">Parag Parikh Flexi</div><div class="mLabel" style="margin-top:2px">FLEXI CAP</div></div><div style="text-align:right"><div class="mHero" style="font-size:12px;font-weight:600">₹1,82,400</div><div class="mHero" style="font-size:10px;color:var(--data-positive)">+22.4%</div></div></div>
+    <div class="mCard" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div><div style="font-size:12px;font-weight:600">HDFC Mid-cap</div><div class="mLabel" style="margin-top:2px">MID CAP</div></div><div style="text-align:right"><div class="mHero" style="font-size:12px;font-weight:600">₹94,100</div><div class="mHero" style="font-size:10px;color:var(--data-positive)">+18.1%</div></div></div>
+    <div class="mCard" style="display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:12px;font-weight:600">Axis Bluechip</div><div class="mLabel" style="margin-top:2px">LARGE CAP</div></div><div style="text-align:right"><div class="mHero" style="font-size:12px;font-weight:600">₹65,700</div><div class="mHero" style="font-size:10px;color:var(--data-negative)">−1.2%</div></div></div>
+  </div></div></div>
+  <div class="cap"><div class="n">02 · Holdings</div><div class="t">Fund list</div><div class="d">TransactionRow-style rows; tap pushes to detail.</div></div></div></div>
+
+  <div class="arrow"><div class="m">push<br>parallax</div><div class="line"></div></div>
+
+  <div class="step"><div><div class="frame"><div class="scr"><div class="mScr">
+    <div class="mBar"><span>‹ Back</span><span>♡</span></div>
+    <div class="mTitle" style="font-size:15px">Parag Parikh Flexi Cap</div>
+    <div class="mMuted" style="margin-top:4px">NAV ₹78.42 · <span style="color:var(--data-positive)">+0.74%</span></div>
+    <div class="mCard" style="margin-top:12px;height:96px;padding:10px;position:relative;overflow:hidden">
+      <div class="mLabel">3Y PERFORMANCE</div>
+      <svg width="100%" height="64" viewBox="0 0 190 64" style="margin-top:4px" preserveAspectRatio="none">
+        <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(182,147,119,0.16)"/><stop offset="100%" stop-color="rgba(182,147,119,0)"/></linearGradient></defs>
+        <path d="M0,52 L27,44 L54,48 L81,30 L108,34 L135,18 L162,22 L190,8 L190,64 L0,64 Z" fill="url(#g)"/>
+        <path d="M0,52 L27,44 L54,48 L81,30 L108,34 L135,18 L162,22 L190,8" fill="none" stroke="var(--copper-400)" stroke-width="2"/>
+      </svg>
+    </div>
+    <div style="display:flex;gap:6px;margin-top:10px">
+      <span style="flex:1;text-align:center;font-size:10px;background:var(--copper-500);color:var(--ink-900);border-radius:6px;padding:5px;font-weight:700">1Y</span>
+      <span style="flex:1;text-align:center;font-size:10px;color:var(--text-tertiary);padding:5px">3Y</span>
+      <span style="flex:1;text-align:center;font-size:10px;color:var(--text-tertiary);padding:5px">5Y</span>
+    </div>
+    <div style="position:absolute;left:14px;right:14px;bottom:16px"><div class="mCta">Invest more</div></div>
+  </div></div></div>
+  <div class="cap"><div class="n">03 · Fund detail</div><div class="t">Performance</div><div class="d">LineChart draws left→right 600ms; ButtonGroup period picker.</div></div></div></div>
+
+</div>
+</body></html>

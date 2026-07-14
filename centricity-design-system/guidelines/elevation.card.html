@@ -1,0 +1,12 @@
+<!-- @dsCard group="Brand" viewport="700x150" name="Elevation & shadow" subtitle="raised → card → sheet, plus the one copper rim-glow" -->
+<!DOCTYPE html>
+<html><head><link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;padding:20px;background:#0D0D0D;background:var(--surface-canvas);font-family:var(--font-ui);}
+.row{display:flex;gap:20px}
+.box{width:120px;height:80px;border-radius:var(--radius-md);background:var(--surface-card);display:flex;align-items:flex-end;padding:8px;color:var(--grey-400);font-size:11px}</style></head>
+<body><div class="row">
+<div class="box" style="box-shadow:var(--shadow-raised)">raised</div>
+<div class="box" style="box-shadow:var(--shadow-card)">card</div>
+<div class="box" style="box-shadow:var(--shadow-sheet)">sheet</div>
+<div class="box" style="box-shadow:var(--glow-copper);color:var(--copper-300)">rim-glow</div>
+</div></body></html>

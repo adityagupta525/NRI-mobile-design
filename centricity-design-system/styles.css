@@ -1,0 +1,13 @@
+/* Centricity — global CSS entry. Import list only.
+   fig-tokens.css carries the full Figma variable system (primitive → semantic,
+   with dark + light themes) and loads FIRST; the hand-authored token files below
+   refine/px-ify the subset the components consume and win any name collisions. */
+@import "tokens/figma/fig-tokens.css";
+@import "components/figma/fig-assets.css";
+@import "tokens/colors.css";
+@import "tokens/fonts.css";
+@import "tokens/typography.css";
+@import "tokens/spacing.css";
+@import "tokens/motion.css";
+@import "tokens/effects.css";
+@import "tokens/base.css";

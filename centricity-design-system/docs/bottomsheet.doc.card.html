@@ -1,0 +1,74 @@
+<!-- @dsCard group="Docs" viewport="760x1360" name="BottomSheet — full spec" subtitle="Anatomy · usage · do & don't · redlines · a11y · motion/haptic · props" -->
+<!DOCTYPE html><html><head>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="doc.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../_ds_bundle.js"></script>
+</head><body>
+<h1>BottomSheet</h1>
+<div class="sub">The mobile replacement for every modal, dropdown and picker. Grab handle, sheet surface, top radius 16, scrim behind.</div>
+
+<h2>Usage</h2>
+<div class="panel"><div id="demo" style="max-width:360px;border-radius:16px;overflow:hidden;border:1px solid var(--border-hairline);"></div></div>
+
+<h2>Anatomy</h2>
+<div class="panel"><ul class="a11y" style="margin:0;padding-left:18px;">
+  <li>① 36×4 grab handle, grey-600, centered, 12px top pad.</li>
+  <li>② title (Figtree 17/600), 16px below handle.</li>
+  <li>③ content region — lists, chips, form fields.</li>
+  <li>④ optional sticky footer CTA, safe-area padded (bottom 34).</li>
+  <li>⑤ scrim: black 50% behind, tap-to-dismiss.</li>
+</ul></div>
+
+<h2>Do &amp; Don't</h2>
+<div class="grid2">
+  <div class="do"><span class="tag">✓ Do</span><div class="muted" style="font-size:13px;">Use for bank/fund/folio pickers, filters, confirm-order, exit-load warning. Keep the primary CTA in the thumb zone.</div></div>
+  <div class="dont"><span class="tag">✕ Don't</span><div class="muted" style="font-size:13px;">Never use a centered modal or a hover dropdown on mobile. Don't exceed ~70% viewport height without an internal scroll region.</div></div>
+</div>
+
+<h2>Spacing redlines</h2>
+<div class="panel"><div class="muted" style="font-size:13px;line-height:20px;">
+  Top radius <code>16</code> (<code>--radius-lg</code>) · side padding <code>20</code> · handle <code>36×4</code> at <code>12</code> top · footer top border hairline, bottom padding <code>12 + safe-area(34)</code>.
+</div></div>
+
+<h2>Accessibility</h2>
+<div class="panel"><ul class="a11y" style="margin:0;padding-left:18px;">
+  <li>Focus is trapped within the sheet while open; Esc / scrim tap / swipe-down all dismiss.</li>
+  <li>Scrim carries <code>role="presentation"</code>; the sheet is <code>role="dialog"</code> with <code>aria-modal</code>.</li>
+  <li>Grab handle + title give a clear affordance and an accessible name.</li>
+  <li>Footer CTA remains above the home indicator (safe-area inset) so it's always tappable.</li>
+</ul></div>
+
+<h2>Motion &amp; haptics</h2>
+<div class="panel">
+  <div class="kv"><b>Enter</b><span class="muted">slide up from 100% + scrim fade, <code>--motion-slow</code> 400ms, <code>--ease-spring</code>.</span></div>
+  <div class="kv"><b>Exit</b><span class="muted">slide down + scrim fade, ease-accelerate, 250ms.</span></div>
+  <div class="kv"><b>Drag</b><span class="muted">follows finger; releases past ~30% → dismiss, else spring back.</span></div>
+  <div class="kv"><b>Haptic</b><span class="muted">light on present; selection tick on row choose.</span></div>
+</div>
+
+<h2>Props</h2>
+<div class="panel"><table>
+  <thead><tr><th>Prop</th><th>Type</th><th>Default</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td><code>open</code></td><td>boolean</td><td><code>true</code></td><td>Mount/visibility</td></tr>
+    <tr><td><code>title</code></td><td>string</td><td>—</td><td>Sheet heading</td></tr>
+    <tr><td><code>footer</code></td><td>ReactNode</td><td>—</td><td>Sticky CTA slot</td></tr>
+    <tr><td><code>onClose</code></td><td>()=&gt;void</td><td>—</td><td>Scrim / handle dismiss</td></tr>
+    <tr><td><code>children</code></td><td>ReactNode</td><td>—</td><td>Sheet body</td></tr>
+  </tbody>
+</table></div>
+
+<script type="text/babel">
+const { BottomSheet, ActionListItem, Divider, Button } = window.CentricityDesignSystem_35f9eb;
+ReactDOM.createRoot(document.getElementById('demo')).render(
+  <BottomSheet title="Select bank account" footer={<Button fullWidth>Confirm</Button>}>
+    <ActionListItem title="Emirates NBD •••• 7788" subtitle="NRE · Primary" />
+    <Divider />
+    <ActionListItem title="HDFC Bank •••• 4521" subtitle="NRO" />
+  </BottomSheet>
+);
+</script>
+</body></html>

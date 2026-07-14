@@ -1,0 +1,61 @@
+/* Centricity — Elevation, glass, grain, motion */
+:root {
+  --shadow-raised: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.45);
+  --shadow-sheet: 0 8px 24px rgba(0, 0, 0, 0.55);
+  --shadow-floating: 0 16px 40px rgba(0, 0, 0, 0.55);
+  --glow-copper: 0 0 24px rgba(182, 147, 119, 0.34); /* exactly ONE per screen */
+  /* brushed-metal champagne CTA shadow stack (verbatim from Button/metal) */
+  --shadow-metal: inset 0 0 0 1px rgba(110,85,56,0.55), inset 0 1px 0 1px rgba(255,255,255,0.55), inset 0 -2px 5px 1px rgba(110,85,56,0.35), 0 10px 26px 0 rgba(182,147,119,0.34), 0 2px 4px 0 rgba(0,0,0,0.45);
+
+  --blur-glass: 20px;
+  --grain-opacity: 0.04; /* @kind other */ /* ~4% film grain on elevated surfaces */
+  --grain-url: url("../assets/textures/grain.png"); /* @kind other */
+
+  --duration-fast: 150ms; /* @kind other */
+  --duration-base: 250ms; /* @kind other */
+  --duration-slow: 400ms; /* @kind other */
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1); /* @kind other */
+  --easing-spring: cubic-bezier(0.34, 1.4, 0.4, 1); /* @kind other */ /* sheet presentations only */
+}
+
+/* Grain overlay utility — apply to any elevated surface.
+   Usage: <div class="cent-surface-card cent-grain"> */
+.cent-grain {
+  position: relative;
+  isolation: isolate;
+}
+.cent-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--grain-url);
+  background-size: 128px 128px;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 5;
+}
+
+/* Frosted glass recipe: blur + hairline top highlight + copper shimmer stroke */
+.cent-glass {
+  background: var(--surface-glass);
+  backdrop-filter: blur(var(--blur-glass));
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+  border: 1px solid var(--copper-shimmer);
+  box-shadow: inset 0 1px 0 var(--hairline-top);
+}
+
+/* Brushed champagne-metal CTA */
+.cent-copper-cta {
+  background: var(--accent-metal);
+  color: var(--text-on-copper);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-metal);
+}
+
+/* Single hero rim-glow — use once per screen, on the hero element only */
+.cent-rim-glow {
+  box-shadow: var(--glow-copper), 0 0 0 1px var(--copper-shimmer);
+}

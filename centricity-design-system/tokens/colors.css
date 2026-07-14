@@ -1,0 +1,97 @@
+/* Centricity — Color tokens (values sampled verbatim from claude.fig).
+   Tier 1 primitives → Tier 2 semantic aliases. Copper is the sole accent. */
+:root {
+  /* Tier 1 — Obsidian surfaces (layered depth, never flat black) */
+  --obsidian-void: #08080A;   /* deepest scrim */
+  --obsidian-950: #0D0D0D;    /* base canvas (ink/canvas) */
+  --obsidian-900: #111111;    /* raised surface (ink/surface) */
+  --obsidian-870: #161618;    /* surfaceAlt2 */
+  --obsidian-850: #191919;    /* elevated card / tile */
+  --obsidian-800: #212121;    /* floating sheet (ink/elevated) */
+  --obsidian-700: #2A2D2F;    /* pressed / hairline-adjacent (ink/line) */
+
+  /* Tier 1 — Copper (the only accent) — champagne ramp */
+  --copper-700: #6E5538;
+  --copper-600: #8A6F55;
+  --copper-500: #B69377;      /* core accent */
+  --copper-400: #C9A888;      /* sheen mid */
+  --copper-300: #D8BC9C;      /* sheen upper */
+  --copper-200: #F2E6CE;      /* champagne cream (sheen top) */
+  --copper-100: #F9D3B4;
+  --copper-50:  #FBEFE0;
+  --copper-shimmer: rgba(182, 147, 119, 0.28); /* glass outer stroke */
+
+  /* Tier 1 — Cream (hero numerals / warm text) */
+  --cream-100: #F2EEE3;
+  --cream-200: #F2E6CE;
+
+  /* Tier 1 — Grey (secondary text / meta) */
+  --grey-400: #A6A8AA;
+  --grey-500: #8C8E8F;
+  --grey-slate: #9CA3AF;   /* meta labels */
+  --grey-600: #5C6470;
+  --grey-700: #4B4E4F;
+
+  /* Tier 1 — Hairlines */
+  --hairline-top: rgba(255, 255, 255, 0.09);
+  --hairline-div: rgba(255, 255, 255, 0.07);
+
+  /* Tier 1 — Semantic-only data colors (sampled from file) */
+  --green-base: #51D360;   /* gain / positive (mint) */
+  --red-base:   #FF6038;   /* loss / negative / alert */
+  --amber-base: #CC9000;   /* warning / pending */
+  /* legacy aliases (kept so earlier components keep resolving) */
+  --sage-500:  var(--green-base);
+  --brick-500: var(--red-base);
+  --amber-500: var(--amber-base);
+
+  --ink-900: #0D0D0D;      /* text ON champagne CTA */
+  --ink-onmetal: #241C12;  /* text on brushed metal / avatars */
+
+  /* ---------- Tier 2 — Semantic (what components consume) ---------- */
+  --surface-canvas: var(--obsidian-950);
+  --surface-raised: var(--obsidian-900);
+  --surface-card: var(--obsidian-850);
+  --surface-sheet: var(--obsidian-800);
+  --surface-pressed: var(--obsidian-700);
+  --surface-glass: rgba(20, 19, 18, 0.55);      /* frosted panels / tab bar */
+  --surface-glass-input: rgba(86, 86, 86, 0.30);/* glass inputs / chips */
+  --surface-row: rgba(17, 17, 17, 0.30);
+
+  --text-primary: rgba(255, 255, 255, 0.92);
+  --text-secondary: rgba(255, 255, 255, 0.82);
+  --text-tertiary: rgba(255, 255, 255, 0.72);
+  --text-meta: var(--grey-slate);
+  --text-disabled: rgba(255, 255, 255, 0.35);
+  --text-on-copper: var(--ink-900);
+  --text-on-metal: var(--ink-onmetal);
+  --text-hero-numeral: var(--cream-100);
+
+  --accent-primary: var(--copper-500);
+  /* Brushed-metal champagne CTA (verbatim from Button/metal, md) */
+  --accent-metal: linear-gradient(169.66deg, #F2E6CE -117.62%, #D8BC9C -37.16%, #B69377 50%, #8A6F55 123.75%, #C9A888 217.62%); /* @kind color */
+  --accent-sheen: var(--accent-metal); /* legacy alias */
+
+  --border-hairline: var(--hairline-div);
+  --border-default: rgba(255, 255, 255, 0.12);
+  --border-focus: var(--copper-500);
+
+  --data-positive: var(--green-base);
+  --data-negative: var(--red-base);
+  --data-warning: var(--amber-base);
+  --data-chart-line: var(--copper-400);
+  --data-chart-fill-top: rgba(182, 147, 119, 0.16);
+  --data-chart-fill-bottom: rgba(182, 147, 119, 0);
+  --data-chart-grid: var(--hairline-div);
+
+  --status-verified: var(--green-base);
+  --status-pending: var(--amber-base);
+  --status-failed: var(--red-base);
+  --status-processing: var(--copper-400);
+
+  /* Navigation (tab bar) */
+  --nav-bar: rgba(13, 13, 13, 0.55);
+  --nav-active: var(--copper-500);
+  --nav-inactive: rgba(255, 255, 255, 0.68);
+  --nav-border: rgba(255, 255, 255, 0.09);
+}

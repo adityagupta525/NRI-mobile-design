@@ -1,0 +1,18 @@
+/* Centricity — base resets, scoped to not leak into consumer pages beyond intent */
+* { box-sizing: border-box; }
+/* Dark floor at the DS root — raw hex so the canvas is never white even
+   before tokens resolve or if a stylesheet fails to load. */
+html { background: #0D0D0D; }
+body {
+  background: #0D0D0D;
+  background: var(--surface-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--copper-400); text-decoration: none; }
+a:hover { color: var(--copper-300); }
+
+@keyframes cent-spin { to { transform: rotate(360deg); } }
+@keyframes cent-shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+@keyframes cent-pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }

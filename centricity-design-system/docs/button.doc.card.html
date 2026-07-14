@@ -1,0 +1,127 @@
+<!-- @dsCard group="Docs" viewport="760x1580" name="Button — full spec" subtitle="Anatomy · variants/states · do & don't · redlines · a11y · motion/haptic · props" -->
+<!DOCTYPE html><html><head>
+<link rel="stylesheet" href="../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../_ds_bundle.js"></script>
+<style>
+  body{background:var(--surface-canvas);margin:0;padding:28px 32px;font-family:var(--font-ui);color:var(--text-primary);}
+  h1{font-size:26px;font-weight:800;margin:0 0 4px;}
+  .sub{color:var(--text-tertiary);font-size:14px;margin-bottom:26px;}
+  h2{font-family:var(--font-mono);font-size:11px;letter-spacing:0.6px;text-transform:uppercase;color:var(--copper-300);margin:30px 0 12px;border-top:1px solid var(--border-hairline);padding-top:16px;}
+  .panel{background:var(--surface-card);border:1px solid var(--border-hairline);border-radius:var(--radius-md);padding:20px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .cell{background:var(--surface-raised);border:1px solid var(--border-hairline);border-radius:var(--radius-sm);padding:16px;}
+  .lab{font-family:var(--font-mono);font-size:10px;letter-spacing:0.5px;text-transform:uppercase;color:var(--text-meta);margin-bottom:12px;}
+  table{width:100%;border-collapse:collapse;font-size:13px;}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--border-hairline);vertical-align:top;}
+  th{font-family:var(--font-mono);font-size:10px;letter-spacing:0.5px;text-transform:uppercase;color:var(--text-meta);font-weight:500;}
+  td code{font-family:var(--font-mono);font-size:12px;color:var(--copper-200);}
+  .muted{color:var(--text-secondary);}
+  .do,.dont{border-radius:var(--radius-sm);padding:14px 14px 16px;}
+  .do{background:rgba(81,211,96,0.07);border:1px solid rgba(81,211,96,0.25);}
+  .dont{background:rgba(255,96,56,0.06);border:1px solid rgba(255,96,56,0.22);}
+  .do .tag{color:var(--data-positive);} .dont .tag{color:var(--data-negative);}
+  .tag{font-family:var(--font-mono);font-size:10px;letter-spacing:0.5px;text-transform:uppercase;font-weight:600;margin-bottom:10px;display:block;}
+  .redline{position:relative;display:flex;align-items:center;gap:0;}
+  .rl{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--copper-300);font-family:var(--font-mono);font-size:10px;}
+  .rl .bar{height:10px;border-left:1px solid var(--copper-shimmer);border-right:1px solid var(--copper-shimmer);border-bottom:1px solid var(--copper-shimmer);width:100%;}
+  .a11y li{font-size:13px;color:var(--text-secondary);margin-bottom:7px;line-height:18px;}
+  .kv{display:flex;gap:8px;font-size:13px;margin-bottom:8px;}
+  .kv b{font-family:var(--font-mono);font-size:10px;letter-spacing:0.5px;text-transform:uppercase;color:var(--text-meta);min-width:78px;padding-top:2px;}
+</style>
+</head><body>
+<h1>Button</h1>
+<div class="sub">The tappable CTA. Exactly one <code>primary</code> (brushed champagne-metal) per screen; everything else steps down.</div>
+<div id="anatomy"></div>
+
+<h2>Variants & states</h2>
+<div class="panel"><div id="variants" style="display:flex;flex-direction:column;gap:16px;"></div></div>
+
+<h2>Anatomy</h2>
+<div class="panel"><div id="anat" style="display:flex;flex-direction:column;gap:10px;"></div></div>
+
+<h2>Do &amp; Don't</h2>
+<div class="grid2">
+  <div class="do"><span class="tag">✓ Do</span><div id="do1"></div><div class="muted" style="font-size:12px;margin-top:10px;">One champagne primary anchors the thumb zone. Secondary actions use solid off-white or ghost.</div></div>
+  <div class="dont"><span class="tag">✕ Don't</span><div id="dont1"></div><div class="muted" style="font-size:12px;margin-top:10px;">Never stack two primaries — the copper CTA loses its "one moment per screen" meaning.</div></div>
+</div>
+
+<h2>Spacing redlines</h2>
+<div class="panel">
+  <div id="redline"></div>
+  <div class="muted" style="font-size:12px;margin-top:14px;">Height 56 (lg) / 52 (md) / 40 (sm). Horizontal padding 24/20/16. Icon–label gap 8. Radius 8 (<code>--radius-sm</code>). Min touch target 44.</div>
+</div>
+
+<h2>Accessibility</h2>
+<div class="panel"><ul class="a11y" style="margin:0;padding-left:18px;">
+  <li>Champagne metal on ink label <code>#0D0D0D</code> → contrast ≥ 8:1 (AAA large).</li>
+  <li>Min hit target 44×44 even at size <code>small</code> (40 visual + tap inset).</li>
+  <li>Disabled uses obsidian-800 + text-disabled; still ≥ 3:1 so state is legible, and <code>disabled</code> is set for screen readers.</li>
+  <li>Loading swaps label for a spinner but keeps button width; announce with <code>aria-busy</code>.</li>
+  <li>Screen-reader label = visible text; icon-only actions use <code>IconButton</code> with an <code>aria-label</code> instead.</li>
+</ul></div>
+
+<h2>Motion &amp; haptics</h2>
+<div class="panel">
+  <div class="kv"><b>Pressed</b><span class="muted">scale 0.97, 100ms (<code>--motion-instant</code>), ease-standard. Releases on pointerup/leave.</span></div>
+  <div class="kv"><b>Loading</b><span class="muted">spinner 0.8s linear; no layout shift.</span></div>
+  <div class="kv"><b>Haptic</b><span class="muted">medium impact on primary press; light on secondary/ghost.</span></div>
+  <div class="kv"><b>Disabled</b><span class="muted">no press transform, no haptic.</span></div>
+</div>
+
+<h2>Props</h2>
+<div class="panel"><table>
+  <thead><tr><th>Prop</th><th>Type</th><th>Default</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td><code>variant</code></td><td>primary · secondary · tertiary · ghost · destructive</td><td><code>primary</code></td><td>One primary per screen</td></tr>
+    <tr><td><code>size</code></td><td>small · medium · large</td><td><code>medium</code></td><td>40 / 52 / 56 px</td></tr>
+    <tr><td><code>fullWidth</code></td><td>boolean</td><td><code>false</code></td><td>Thumb-zone CTAs</td></tr>
+    <tr><td><code>disabled</code></td><td>boolean</td><td><code>false</code></td><td>No press/haptic</td></tr>
+    <tr><td><code>loading</code></td><td>boolean</td><td><code>false</code></td><td>Spinner, width held</td></tr>
+    <tr><td><code>iconLeft / iconRight</code></td><td>ReactNode</td><td>—</td><td>8px gap to label</td></tr>
+    <tr><td><code>onClick</code></td><td>() =&gt; void</td><td>—</td><td>Suppressed while loading/disabled</td></tr>
+  </tbody>
+</table></div>
+
+<script type="text/babel">
+const { Button } = window.CentricityDesignSystem_35f9eb;
+const R = (id,node)=>ReactDOM.createRoot(document.getElementById(id)).render(node);
+const Cell = ({label,children}) => <div className="cell"><div className="lab">{label}</div>{children}</div>;
+
+R("variants", <>
+  <div style={{display:'flex',gap:12,flexWrap:'wrap',alignItems:'center'}}>
+    <Button variant="primary">Primary · champagne</Button>
+    <Button variant="secondary">Secondary · solid</Button>
+    <Button variant="tertiary">Tertiary · glass</Button>
+    <Button variant="ghost">Ghost</Button>
+    <Button variant="destructive">Destructive</Button>
+  </div>
+  <div style={{display:'flex',gap:12,flexWrap:'wrap',alignItems:'center'}}>
+    <Button size="small">Small 40</Button>
+    <Button size="medium">Medium 52</Button>
+    <Button size="large">Large 56</Button>
+    <Button disabled>Disabled</Button>
+    <Button loading>Loading</Button>
+  </div>
+</>);
+
+R("anat", <>
+  <Button variant="primary" size="large" iconLeft={<span>✦</span>} fullWidth>Start your investment journey</Button>
+  <div className="muted" style={{fontSize:12}}>① brushed-metal fill · ② inset top highlight + copper rim · ③ ink label (Figtree 600) · ④ optional leading icon, 8px gap · ⑤ radius 8</div>
+</>);
+
+R("do1", <Button variant="primary" fullWidth>Invest now</Button>);
+R("dont1", <div style={{display:'flex',gap:10}}><Button variant="primary">Invest</Button><Button variant="primary">Skip</Button></div>);
+
+R("redline", <div style={{display:'flex',alignItems:'center',gap:16}}>
+  <div style={{position:'relative'}}>
+    <Button variant="primary" size="large">Confirm order</Button>
+  </div>
+  <div className="rl" style={{width:60}}><span>H 56</span><div className="bar" style={{height:20}}></div></div>
+  <div className="rl" style={{width:60}}><span>pad 24</span><div className="bar" style={{height:20}}></div></div>
+  <div className="rl" style={{width:40}}><span>r 8</span><div className="bar" style={{height:20}}></div></div>
+</div>);
+</script>
+</body></html>

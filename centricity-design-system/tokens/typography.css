@@ -1,0 +1,41 @@
+/* Centricity — Type scale (375px frame, true px, no rem) */
+:root {
+  --type-display-size: 34px;   --type-display-lh: 40px;  --type-display-tracking: -0.4px;
+  --type-title1-size: 28px;    --type-title1-lh: 34px;   --type-title1-tracking: -0.3px;
+  --type-title2-size: 22px;    --type-title2-lh: 28px;   --type-title2-tracking: -0.2px;
+  --type-headline-size: 17px;  --type-headline-lh: 22px; --type-headline-tracking: -0.1px; --type-headline-weight: 600;
+  --type-body-size: 15px;      --type-body-lh: 20px;     --type-body-tracking: 0px;
+  --type-callout-size: 14px;   --type-callout-lh: 18px;  --type-callout-tracking: 0px;
+  --type-caption-size: 12px;   --type-caption-lh: 16px;  --type-caption-tracking: 0.1px;
+  --type-micro-size: 10px;     --type-micro-lh: 13px;    --type-micro-tracking: 0.2px;
+}
+
+.cent-type-display { font-family: var(--font-ui); font-size: var(--type-display-size); line-height: var(--type-display-lh); letter-spacing: var(--type-display-tracking); font-weight: 700; }
+.cent-type-title1 { font-family: var(--font-ui); font-size: var(--type-title1-size); line-height: var(--type-title1-lh); letter-spacing: var(--type-title1-tracking); font-weight: 700; }
+.cent-type-title2 { font-family: var(--font-ui); font-size: var(--type-title2-size); line-height: var(--type-title2-lh); letter-spacing: var(--type-title2-tracking); font-weight: 600; }
+.cent-type-headline { font-family: var(--font-ui); font-size: var(--type-headline-size); line-height: var(--type-headline-lh); letter-spacing: var(--type-headline-tracking); font-weight: var(--type-headline-weight); }
+.cent-type-body { font-family: var(--font-ui); font-size: var(--type-body-size); line-height: var(--type-body-lh); letter-spacing: var(--type-body-tracking); font-weight: 400; }
+.cent-type-callout { font-family: var(--font-ui); font-size: var(--type-callout-size); line-height: var(--type-callout-lh); letter-spacing: var(--type-callout-tracking); font-weight: 400; }
+.cent-type-caption { font-family: var(--font-ui); font-size: var(--type-caption-size); line-height: var(--type-caption-lh); letter-spacing: var(--type-caption-tracking); font-weight: 500; text-transform: uppercase; }
+.cent-type-micro { font-family: var(--font-ui); font-size: var(--type-micro-size); line-height: var(--type-micro-lh); letter-spacing: var(--type-micro-tracking); font-weight: 500; text-transform: uppercase; }
+
+/* Data micro-labels — Figtree, uppercase, wide tracking (NIFTY 50, TOTAL PORTFOLIO VALUE, 3Y CAGR, MIN. SIP) */
+.cent-type-datalabel { font-family: var(--font-ui); font-size: 10px; line-height: 13px; letter-spacing: 0.6px; font-weight: 600; text-transform: uppercase; }
+.cent-type-datalabel-sm { font-family: var(--font-ui); font-size: 9px; line-height: 12px; letter-spacing: 0.5px; font-weight: 600; text-transform: uppercase; }
+
+/* Numerals — always tabular figures, Indian digit grouping done in JS/formatting */
+.cent-numeral {
+  font-family: var(--font-numeral);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+.cent-type-hero-numeral {
+  font-family: var(--font-numeral);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  font-size: var(--type-display-size);
+  line-height: var(--type-display-lh);
+  letter-spacing: var(--type-display-tracking);
+  font-weight: 500;
+  color: var(--text-hero-numeral);
+}

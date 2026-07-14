@@ -1,0 +1,53 @@
+<!-- @dsCard group="Docs" viewport="760x1320" name="RiskMeter — full spec" subtitle="SEBI regulatory element · levels · compliance rules · a11y · props" -->
+<!DOCTYPE html><html><head>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="doc.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../_ds_bundle.js"></script>
+</head><body>
+<h1>RiskMeter</h1>
+<div class="sub">SEBI Riskometer — a <b>regulatory</b> element. Levels and disclaimer are verbatim; only the materials are re-skinned (obsidian track, copper-intensity arc + needle). No green→red rainbow.</div>
+
+<h2>All 6 levels</h2>
+<div class="panel"><div id="levels" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;"></div></div>
+
+<h2>Compliance rules</h2>
+<div class="panel"><ul class="a11y" style="margin:0;padding-left:18px;">
+  <li>Exactly six levels, fixed order: Low · Low to Moderate · Moderate · Moderately High · High · Very High.</li>
+  <li>Label text and the "principal will be at … risk" line are <b>verbatim</b> — never paraphrased or shortened.</li>
+  <li>Re-skin materials only. Copper-intensity ramp respects the copper-only law; do not introduce green/red risk colours.</li>
+  <li>Always shown on fund detail + confirm-order screens for the fund being purchased.</li>
+</ul></div>
+
+<h2>Do &amp; Don't</h2>
+<div class="grid2">
+  <div class="do"><span class="tag">✓ Do</span><div class="muted" style="font-size:13px;">Pair the meter with the verbatim disclaimer line and the fund name. Point the needle at the fund's declared level.</div></div>
+  <div class="dont"><span class="tag">✕ Don't</span><div class="muted" style="font-size:13px;">Don't animate the needle for drama, invent a 7th level, recolour arcs green/amber/red, or reword the levels.</div></div>
+</div>
+
+<h2>Accessibility</h2>
+<div class="panel"><ul class="a11y" style="margin:0;padding-left:18px;">
+  <li>Level is conveyed by text label, not colour alone (colour-blind safe).</li>
+  <li>Needle + active arc give a redundant visual cue to the label.</li>
+  <li>Expose the level as an accessible name, e.g. <code>aria-label="Riskometer: Very High"</code>.</li>
+</ul></div>
+
+<h2>Props</h2>
+<div class="panel"><table>
+  <thead><tr><th>Prop</th><th>Type</th><th>Default</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td><code>levelIndex</code></td><td>0–5</td><td><code>2</code></td><td>0 Low … 5 Very High</td></tr>
+    <tr><td><code>size</code></td><td>number</td><td><code>220</code></td><td>Overall width px</td></tr>
+  </tbody>
+</table>
+<div class="muted" style="font-size:12px;margin-top:12px;">Export <code>RISK_LEVELS</code> gives the verbatim label array.</div></div>
+
+<script type="text/babel">
+const { RiskMeter } = window.CentricityDesignSystem_35f9eb;
+ReactDOM.createRoot(document.getElementById('levels')).render(
+  <>{[0,1,2,3,4,5].map(i=><div key={i} style={{background:'var(--surface-raised)',borderRadius:8,padding:8,display:'flex',justifyContent:'center'}}><RiskMeter levelIndex={i} size={150} /></div>)}</>
+);
+</script>
+</body></html>

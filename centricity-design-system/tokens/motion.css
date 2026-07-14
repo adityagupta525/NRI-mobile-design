@@ -1,0 +1,78 @@
+/* Centricity — Motion System
+   Principal-level motion: restraint over spectacle. One celebration moment per journey
+   (first order placed). Everything else is functional, fast, and physical.
+   All motion respects prefers-reduced-motion. */
+:root {
+  /* Duration scale */
+  --motion-instant: 100ms;     /* @kind other */ /* state flips, selection ticks */
+  --motion-fast: 150ms;        /* @kind other */ /* tab crossfade, toggle, press */
+  --motion-base: 250ms;        /* @kind other */ /* default enter/exit, most transitions */
+  --motion-slow: 400ms;        /* @kind other */ /* sheet present, screen push */
+  --motion-celebration: 600ms; /* @kind other */ /* success moment + chart draw-in ONLY */
+
+  /* Easing curves */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);      /* @kind other */ /* general, symmetric */
+  --ease-decelerate: cubic-bezier(0, 0, 0, 1);      /* @kind other */ /* ENTRIES (fast in, gentle land) */
+  --ease-accelerate: cubic-bezier(0.3, 0, 1, 1);    /* @kind other */ /* EXITS (gentle start, fast out) */
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.4, 1);   /* @kind other */ /* SHEETS only (slight overshoot) */
+
+  /* Choreography constants */
+  --stagger-step: 40ms;        /* @kind other */ /* list cascade interval */
+  --press-scale: 0.97;         /* @kind other */ /* CTA pressed */
+
+  /* Legacy aliases (earlier components) */
+  --duration-fast: var(--motion-fast);
+  --duration-base: var(--motion-base);
+  --duration-slow: var(--motion-slow);
+  --easing-standard: var(--ease-standard);
+  --easing-spring: var(--ease-spring);
+}
+
+/* ---- Entrance primitives (base state = visible; animate FROM hidden) ---- */
+@keyframes cent-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes cent-rise-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes cent-sheet-up { from { transform: translateY(100%); } to { transform: translateY(0); } }
+@keyframes cent-scrim-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes cent-push-in { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
+@keyframes cent-check-draw { from { stroke-dashoffset: var(--check-len, 48); } to { stroke-dashoffset: 0; } }
+@keyframes cent-line-draw { from { stroke-dashoffset: var(--line-len, 1000); } to { stroke-dashoffset: 0; } }
+@keyframes cent-pop-in { 0% { opacity: 0; transform: scale(0.6); } 60% { transform: scale(1.06); } 100% { opacity: 1; transform: scale(1); } }
+@keyframes cent-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ---- Utility classes ---- */
+.cent-enter { animation: cent-rise-in var(--motion-base) var(--ease-decelerate) both; }
+.cent-fade { animation: cent-fade-in var(--motion-fast) var(--ease-standard) both; }
+.cent-sheet-enter { animation: cent-sheet-up var(--motion-slow) var(--ease-spring) both; }
+.cent-scrim { animation: cent-scrim-in var(--motion-base) var(--ease-standard) both; }
+.cent-push-enter { animation: cent-push-in var(--motion-slow) var(--ease-decelerate) both; }
+
+/* Pressable: scale down on active */
+.cent-press { transition: transform var(--motion-fast) var(--ease-standard); }
+.cent-press:active { transform: scale(var(--press-scale)); }
+
+/* Staggered list cascade — wrap items; each paints 40ms after the previous */
+.cent-stagger > * { animation: cent-rise-in var(--motion-base) var(--ease-decelerate) both; }
+.cent-stagger > *:nth-child(1) { animation-delay: 0ms; }
+.cent-stagger > *:nth-child(2) { animation-delay: 40ms; }
+.cent-stagger > *:nth-child(3) { animation-delay: 80ms; }
+.cent-stagger > *:nth-child(4) { animation-delay: 120ms; }
+.cent-stagger > *:nth-child(5) { animation-delay: 160ms; }
+.cent-stagger > *:nth-child(6) { animation-delay: 200ms; }
+.cent-stagger > *:nth-child(7) { animation-delay: 240ms; }
+.cent-stagger > *:nth-child(8) { animation-delay: 280ms; }
+.cent-stagger > *:nth-child(n+9) { animation-delay: 320ms; }
+
+/* Chart line draw-in — set --line-len to the path length in JS (getTotalLength) */
+.cent-draw-line { animation: cent-line-draw var(--motion-celebration) var(--ease-decelerate) both; }
+/* Success checkmark draw-on */
+.cent-draw-check { animation: cent-check-draw var(--motion-base) var(--ease-decelerate) 120ms both; }
+/* Celebration pop (first-order success only) */
+.cent-celebrate { animation: cent-pop-in var(--motion-celebration) var(--ease-spring) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cent-enter, .cent-fade, .cent-sheet-enter, .cent-scrim, .cent-push-enter,
+  .cent-stagger > *, .cent-draw-line, .cent-draw-check, .cent-celebrate {
+    animation: none !important;
+  }
+  .cent-press:active { transform: none; }
+}

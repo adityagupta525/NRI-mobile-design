@@ -1,0 +1,100 @@
+<!-- @dsCard group="Centricity App" viewport="375x812" name="Centricity — NRI Invest App" subtitle="Interactive: Home · Portfolio · Invest · KYC onboarding" -->
+<!-- @startingPoint section="Screens" subtitle="Full NRI mutual-fund app — home, portfolio, invest, KYC" viewport="375x812" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Centricity — NRI Invest App</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  html, body { margin: 0; height: 100%; background: #050505; }
+  #stage { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; background: radial-gradient(circle at 50% 0%, #14100C 0%, #050505 60%); }
+  .phone {
+    width: 375px; height: 812px; position: relative; overflow: hidden;
+    background: var(--surface-canvas); border-radius: 44px;
+    box-shadow: 0 0 0 10px #17171a, 0 30px 80px rgba(0,0,0,0.7);
+  }
+  .screen { position: absolute; inset: 0; overflow-y: auto; overflow-x: hidden; }
+  .screen::-webkit-scrollbar { width: 0; }
+</style>
+</head>
+<body>
+<div id="stage"><div class="phone"><div id="root"></div></div></div>
+<script src="Shared.jsx" type="text/babel"></script>
+<script src="Home.jsx" type="text/babel"></script>
+<script src="Portfolio.jsx" type="text/babel"></script>
+<script src="Kyc.jsx" type="text/babel"></script>
+<script src="Invest.jsx" type="text/babel"></script>
+<script type="text/babel" data-presets="react">
+const C = window.CentricityDesignSystem_35f9eb;
+
+function Taxation() {
+  return (
+    <div style={{ paddingBottom: 110 }}>
+      <div style={{ padding: "8px 16px 16px" }}><div className="cent-type-title1" style={{ color: "var(--text-primary)" }}>Taxation</div></div>
+      <C.Card glow style={{ margin: "0 16px 20px" }}>
+        <div className="cent-type-caption" style={{ color: "var(--text-tertiary)", marginBottom: 8 }}>DTAA benefits · UAE NRIs</div>
+        <div className="cent-type-callout" style={{ color: "var(--text-secondary)", marginBottom: 12 }}>Estimated savings vs standard TDS this FY</div>
+        <div style={{ fontFamily: "var(--font-numeral)", fontSize: 30, fontWeight: 500, color: "var(--cream-100)" }}>₹4,25,250</div>
+        <div style={{ marginTop: 16 }}><C.Button variant="primary" fullWidth>Activate DTAA</C.Button></div>
+      </C.Card>
+      <div style={{ padding: "0 16px" }}>
+        <C.ActionListItem leading={<Dot />} title="TDS statement (FY 25-26)" subtitle="Download PDF" onClick={()=>{}} />
+        <C.Divider />
+        <C.ActionListItem leading={<Dot />} title="Capital gains report" subtitle="Realised & unrealised" onClick={()=>{}} />
+        <C.Divider />
+        <C.ActionListItem leading={<Dot />} title="Form 26AS mismatch check" subtitle="Up to date" onClick={()=>{}} />
+      </div>
+    </div>
+  );
+}
+function Dot(){ return <div style={{width:36,height:36,borderRadius:10,background:'var(--surface-raised)',display:'flex',alignItems:'center',justifyContent:'center',color:'var(--copper-400)'}}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></div>; }
+
+function App() {
+  const [tab, setTab] = React.useState("home");
+  const [kyc, setKyc] = React.useState(false);
+  const scrollRef = React.useRef(null);
+
+  React.useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = 0; }, [tab]);
+
+  if (kyc) {
+    return (
+      <React.Fragment>
+        <window.StatusBar />
+        <div style={{ position: "absolute", top: 44, left: 0, right: 0, bottom: 0 }}>
+          <window.Kyc onExit={() => { setKyc(false); setTab("portfolio"); }} />
+        </div>
+      </React.Fragment>
+    );
+  }
+
+  return (
+    <React.Fragment>
+      <window.StatusBar />
+      <div ref={scrollRef} className="screen" style={{ top: 44 }}>
+        {tab === "home" && <window.Home onStartKyc={() => setKyc(true)} />}
+        {tab === "portfolio" && <window.Portfolio />}
+        {tab === "invest" && <window.Invest />}
+        {tab === "tax" && <Taxation />}
+      </div>
+      {tab !== "invest" && <window.TabBar active={tab} onChange={setTab} />}
+      {tab === "invest" && <FloatingTab active={tab} onChange={setTab} />}
+    </React.Fragment>
+  );
+}
+// Invest screen owns its own bottom CTA; show tab bar above it via a compact floating variant reusing TabBar is complex — simplest: keep tab bar hidden on invest and provide a back affordance.
+function FloatingTab({ active, onChange }) {
+  return (
+    <button onClick={() => onChange("home")} style={{ position: "absolute", top: 52, right: 16, zIndex: 30, width: 40, height: 40, borderRadius: "var(--radius-md)", background: "var(--surface-glass)", backdropFilter: "blur(20px)", border: "1px solid var(--copper-shimmer)", color: "var(--text-primary)", cursor: "pointer" }}>✕</button>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

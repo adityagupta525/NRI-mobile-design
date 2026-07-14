@@ -1,0 +1,27 @@
+<!-- @dsCard group="Motion" viewport="700x420" name="Haptics map" subtitle="iOS haptic feedback per interaction — the felt layer" -->
+<!DOCTYPE html><html><head>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;padding:20px;background:#0D0D0D;background:var(--surface-canvas);color:var(--text-primary);font-family:var(--font-ui);}
+  table{width:100%;border-collapse:collapse;}
+  th{font-family:var(--font-mono);font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:var(--text-meta);text-align:left;padding:0 0 10px;font-weight:500;}
+  td{padding:11px 0;border-top:1px solid var(--border-hairline);font-size:13px;vertical-align:middle;}
+  .int{color:var(--text-primary);font-weight:500;}
+  .hap{display:inline-flex;align-items:center;gap:8px;}
+  .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .api{font-family:var(--font-mono);font-size:11px;color:var(--text-tertiary);}
+</style></head>
+<body>
+<table>
+<thead><tr><th style="width:34%">Interaction</th><th style="width:30%">Haptic</th><th>iOS API</th></tr></thead>
+<tbody>
+<tr><td class="int">Tab switch · toggle flip</td><td><span class="hap"><span class="dot" style="background:var(--copper-300)"></span>Light impact</span></td><td class="api">UIImpactFeedbackGenerator(.light)</td></tr>
+<tr><td class="int">Primary CTA press</td><td><span class="hap"><span class="dot" style="background:var(--copper-400)"></span>Medium impact</span></td><td class="api">UIImpactFeedbackGenerator(.medium)</td></tr>
+<tr><td class="int">Order placed · KYC verified</td><td><span class="hap"><span class="dot" style="background:var(--green-base)"></span>Success notification</span></td><td class="api">UINotificationFeedbackGenerator(.success)</td></tr>
+<tr><td class="int">Error · payment failed</td><td><span class="hap"><span class="dot" style="background:var(--red-base)"></span>Warning notification</span></td><td class="api">UINotificationFeedbackGenerator(.warning)</td></tr>
+<tr><td class="int">Picker / slider step · amount preset</td><td><span class="hap"><span class="dot" style="background:var(--text-meta)"></span>Selection tick</span></td><td class="api">UISelectionFeedbackGenerator()</td></tr>
+<tr><td class="int">Swipe action reveal (watchlist)</td><td><span class="hap"><span class="dot" style="background:var(--copper-300)"></span>Light impact</span></td><td class="api">UIImpactFeedbackGenerator(.light)</td></tr>
+<tr><td class="int">Pull-to-refresh trigger</td><td><span class="hap"><span class="dot" style="background:var(--copper-300)"></span>Light impact</span></td><td class="api">UIImpactFeedbackGenerator(.light)</td></tr>
+</tbody></table>
+<div style="margin-top:16px;font-size:12px;color:var(--text-tertiary);line-height:1.6">Rule: haptics confirm intent, never decorate. Never fire on scroll, passive load, or repeatedly within 100ms. Success notification is reserved — same restraint as the copper celebration moment.</div>
+</body></html>

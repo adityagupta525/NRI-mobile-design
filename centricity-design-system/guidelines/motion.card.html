@@ -1,0 +1,53 @@
+<!-- @dsCard group="Motion" viewport="700x560" name="Motion system" subtitle="Duration scale, easing curves, choreography rules — live" -->
+<!DOCTYPE html><html><head>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;padding:20px;background:#0D0D0D;background:var(--surface-canvas);color:var(--text-primary);font-family:var(--font-ui);}
+  h4{font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:var(--text-meta);font-family:var(--font-mono);margin:0 0 10px;}
+  .sec{margin-bottom:22px;}
+  .row{display:flex;gap:10px;flex-wrap:wrap;}
+  .tok{background:var(--surface-card);border-radius:12px;padding:12px 14px;min-width:112px;}
+  .tok .n{font-family:var(--font-mono);font-size:11px;color:var(--copper-300);}
+  .tok .v{font-family:var(--font-numeral);font-size:20px;font-weight:600;margin-top:4px;}
+  .tok .u{font-size:11px;color:var(--text-tertiary);margin-top:2px;}
+  .demo{display:flex;align-items:center;gap:14px;background:var(--surface-card);border-radius:12px;padding:14px;margin-bottom:8px;}
+  .demo .lbl{font-size:12px;color:var(--text-secondary);width:150px;}
+  .track{flex:1;height:36px;position:relative;background:var(--obsidian-800);border-radius:8px;overflow:hidden;}
+  .ball{position:absolute;top:6px;left:6px;width:24px;height:24px;border-radius:6px;background:var(--accent-metal);box-shadow:var(--shadow-metal);}
+  .mono{font-family:var(--font-mono);font-size:10px;color:var(--text-meta);}
+</style></head>
+<body>
+<div class="sec"><h4>Duration scale</h4><div class="row">
+  <div class="tok"><div class="n">instant</div><div class="v">100</div><div class="u">state flips</div></div>
+  <div class="tok"><div class="n">fast</div><div class="v">150</div><div class="u">tab · toggle · press</div></div>
+  <div class="tok"><div class="n">base</div><div class="v">250</div><div class="u">default enter/exit</div></div>
+  <div class="tok"><div class="n">slow</div><div class="v">400</div><div class="u">sheet · screen push</div></div>
+  <div class="tok"><div class="n">celebration</div><div class="v">600</div><div class="u">success · chart draw</div></div>
+</div></div>
+
+<div class="sec"><h4>Easing — hover a row to replay</h4>
+  <div class="demo" data-ease="var(--ease-standard)"><div class="lbl">standard <span class="mono">.2,0,0,1</span></div><div class="track"><div class="ball"></div></div></div>
+  <div class="demo" data-ease="var(--ease-decelerate)"><div class="lbl">decelerate · entries</div><div class="track"><div class="ball"></div></div></div>
+  <div class="demo" data-ease="var(--ease-accelerate)"><div class="lbl">accelerate · exits</div><div class="track"><div class="ball"></div></div></div>
+  <div class="demo" data-ease="var(--ease-spring)"><div class="lbl">spring · sheets</div><div class="track"><div class="ball"></div></div></div>
+</div>
+
+<div class="sec"><h4>Choreography rules</h4>
+<div style="font-size:12.5px;line-height:1.7;color:var(--text-secondary)">
+Screen push → slide-in + parallax fade (slow / decelerate) · Sheet → spring up + scrim fade (slow / spring) ·
+Tab switch → crossfade (fast) · List entry → 40ms staggered cascade · Portfolio value → number count-up ·
+Chart → line traces left→right (celebration) · Skeleton → content crossfade · CTA press → scale 0.97 ·
+Success → checkmark draws on. <b style="color:var(--copper-300)">One celebration only: first order placed.</b>
+</div></div>
+
+<script>
+document.querySelectorAll('.demo').forEach(d=>{
+  const ball=d.querySelector('.ball'), ease=d.dataset.ease;
+  function run(){ ball.style.transition='none'; ball.style.transform='translateX(0)';
+    requestAnimationFrame(()=>{ ball.style.transition=`transform 900ms ${ease}`;
+      ball.style.transform='translateX(calc(100% - 0px))'; ball.parentElement.style.setProperty('--x','1');
+      ball.style.transform='translateX('+(d.querySelector('.track').offsetWidth-36)+'px)'; }); }
+  d.addEventListener('mouseenter',run); setTimeout(run,300);
+});
+</script>
+</body></html>

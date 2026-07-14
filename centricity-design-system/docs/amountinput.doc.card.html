@@ -1,0 +1,76 @@
+<!-- @dsCard group="Docs" viewport="760x1400" name="AmountInput — full spec" subtitle="Anatomy · states · do & don't · redlines · a11y · motion/haptic · props" -->
+<!DOCTYPE html><html><head>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="doc.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../_ds_bundle.js"></script>
+</head><body>
+<h1>AmountInput</h1>
+<div class="sub">Hero currency field for invest/SIP flows. Indian digit grouping (₹X,XX,XXX), Tabular figures, live-formatted as the user types.</div>
+
+<h2>States</h2>
+<div class="panel"><div class="grid2" id="states"></div></div>
+
+<h2>Anatomy</h2>
+<div class="panel"><div id="anat"></div>
+<div class="muted" style="font-size:12px;margin-top:14px;">① field label (Figtree 13) · ② ₹ symbol (Tabular) · ③ live value, Tabular tnum, 34px · ④ hairline baseline · ⑤ helper / min-SIP text.</div></div>
+
+<h2>Do &amp; Don't</h2>
+<div class="grid2">
+  <div class="do"><span class="tag">✓ Do</span><div id="do1"></div><div class="muted" style="font-size:12px;margin-top:10px;">Group in the Indian system: 50,000 → 5,00,000 → 50,00,000. Always Tabular figures.</div></div>
+  <div class="dont"><span class="tag">✕ Don't</span><div class="muted" style="font-size:13px;">Never render amounts in Figtree or with Western grouping (500,000). Never show a projected return here — that belongs in SIPCalculatorSlider with a disclaimer.</div></div>
+</div>
+
+<h2>Spacing redlines</h2>
+<div class="panel"><div style="display:flex;gap:16px;align-items:flex-end;">
+  <div id="redline" style="flex:1;"></div>
+  <div class="rl" style="width:70px"><span>value 34</span><div class="bar"></div></div>
+  <div class="rl" style="width:70px"><span>gap 6</span><div class="bar"></div></div>
+</div></div>
+
+<h2>Accessibility</h2>
+<div class="panel"><ul class="a11y" style="margin:0;padding-left:18px;">
+  <li>Cream value <code>#F2EEE3</code> on obsidian → contrast ≥ 12:1.</li>
+  <li><code>inputMode="decimal"</code> surfaces the numeric keypad; grouping commas are stripped before parsing.</li>
+  <li>Label is programmatically associated; helper/error text announced via <code>aria-describedby</code>.</li>
+  <li>Field height ≥ 44 tap target even though the visual is baseline-only.</li>
+</ul></div>
+
+<h2>Motion &amp; haptics</h2>
+<div class="panel">
+  <div class="kv"><b>Type</b><span class="muted">digits reflow instantly as grouping recomputes; no animation on the numeral (legibility first).</span></div>
+  <div class="kv"><b>Quick-add</b><span class="muted">preset chips (+₹5k) scale 0.97 on press.</span></div>
+  <div class="kv"><b>Haptic</b><span class="muted">selection tick on each preset chip; none on raw typing.</span></div>
+</div>
+
+<h2>Props</h2>
+<div class="panel"><table>
+  <thead><tr><th>Prop</th><th>Type</th><th>Default</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td><code>label</code></td><td>string</td><td>"Amount"</td><td>Field label</td></tr>
+    <tr><td><code>value</code></td><td>string · number</td><td>—</td><td>Raw (uncommatted) value</td></tr>
+    <tr><td><code>onChange</code></td><td>(raw:string)=&gt;void</td><td>—</td><td>Commas stripped for you</td></tr>
+    <tr><td><code>helperText</code></td><td>string</td><td>—</td><td>e.g. "Min. SIP ₹1,000"</td></tr>
+    <tr><td><code>size</code></td><td>large · medium</td><td><code>large</code></td><td>34 / 22 px numeral</td></tr>
+  </tbody>
+</table>
+<div class="muted" style="font-size:12px;margin-top:12px;">Helper export: <code>formatIndianCurrency(n)</code> → "5,00,000".</div></div>
+
+<script type="text/babel">
+const { AmountInput } = window.CentricityDesignSystem_35f9eb;
+const R=(id,n)=>ReactDOM.createRoot(document.getElementById(id)).render(n);
+const Cell=({label,children})=><div className="cell"><div className="lab">{label}</div>{children}</div>;
+function Live({init,helper,size}){const[v,setV]=React.useState(init);return <AmountInput value={v} onChange={setV} helperText={helper} size={size}/>;}
+R("states", <>
+  <Cell label="Default"><Live init="50000" helper="Min. SIP ₹1,000" /></Cell>
+  <Cell label="Large balance"><Live init="3421865" helper="Lumpsum" /></Cell>
+  <Cell label="Empty"><Live init="" helper="Enter an amount" /></Cell>
+  <Cell label="Medium size"><Live init="12500" helper="" size="medium" /></Cell>
+</>);
+R("anat", <div style={{maxWidth:320}}><Live init="500000" helper="Min. SIP ₹1,000" /></div>);
+R("do1", <div style={{maxWidth:300}}><Live init="5000000" helper="₹50,00,000 — grouped correctly" /></div>);
+R("redline", <div style={{maxWidth:320}}><Live init="500000" helper="baseline + helper" /></div>);
+</script>
+</body></html>
